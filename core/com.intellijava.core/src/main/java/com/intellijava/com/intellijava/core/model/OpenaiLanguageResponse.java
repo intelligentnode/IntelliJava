@@ -24,7 +24,7 @@ import java.util.List;
  * A model class to parse openai completion API response.
  *
  */
-public class OpenaiResponseModel extends BaseRemoteModel {
+public class OpenaiLanguageResponse extends BaseRemoteModel {
     
     private String object;
     private long created;

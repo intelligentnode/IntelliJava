@@ -27,7 +27,8 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 import com.intellijava.com.intellijava.core.model.BaseRemoteModel;
-import com.intellijava.com.intellijava.core.model.OpenaiResponseModel;
+import com.intellijava.com.intellijava.core.model.OpenaiImageResponse;
+import com.intellijava.com.intellijava.core.model.OpenaiLanguageResponse;
 import com.intellijava.com.intellijava.core.utils.Config2;
 import com.intellijava.com.intellijava.core.utils.ConnHelper;
 
@@ -38,7 +39,7 @@ import com.intellijava.com.intellijava.core.utils.ConnHelper;
  * A wrapper to hide the complexity of openai API.
  *
  */
-public class OpenAIWrapper implements LanguageModelInterface {
+public class OpenAIWrapper implements LanguageModelInterface, ImageModelInterface {
 	
     private final String API_BASE_URL = Config2.getInstance().getProperty("url.openai.base");
     private String API_KEY;
@@ -52,14 +53,17 @@ public class OpenAIWrapper implements LanguageModelInterface {
     }
     
     /**
-     * 
-     * @param model the model name, example: text-davinci-002. For more details about GPT3 models: https://beta.openai.com/docs/models/gpt-3
-     * @param prompt text of the required action or the question.
-     * @param temperature higher values means more risks and creativity.
-     * @param maxTokens maximum size of the model input and output.
-     * @return the model response.
-     * @throws IOException
-     */
+	 * 
+	 * Generate text from remote large language model based on the received prompt.
+	 * 
+	 * @param params key and value for the API parameters
+	 * 			model the model name, example: text-davinci-002. For more details about GPT3 models: https://beta.openai.com/docs/models/gpt-3
+	 * 			prompt text of the required action or the question.
+	 * 			temperature higher values means more risks and creativity.
+	 * 			maxTokens maximum size of the model input and output.
+	 * @return BaseRemoteModel for model response
+	 * @throws IOException
+	 */
     public BaseRemoteModel generateText(Map<String, Object> params) throws IOException {
     	
         String url = API_BASE_URL + Config2.getInstance().getProperty("url.openai.completions");
@@ -82,7 +86,42 @@ public class OpenAIWrapper implements LanguageModelInterface {
         }
 
         // get the response and convert to model 
-        OpenaiResponseModel resModel = ConnHelper.convertSteamToModel(connection.getInputStream(), OpenaiResponseModel.class);
+        OpenaiLanguageResponse resModel = ConnHelper.convertSteamToModel(connection.getInputStream(), OpenaiLanguageResponse.class);
+        return resModel;
+    }
+    
+    /**
+     * 
+     * @param params should include prompt, n, size
+     * 			prompt: text of the required action or the question.
+     * 			n: number of the generated images.
+     * 			size: 256x256, 512x512, or 1024x1024.
+     * @return
+     * @throws IOException
+     */
+    public BaseRemoteModel generateImages(Map<String, Object> params) throws IOException {
+    	
+        String url = API_BASE_URL + Config2.getInstance().getProperty("url.openai.imagegenerate");
+
+        String json = ConnHelper.convertMaptToJson(params);
+
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Authorization", "Bearer " + API_KEY);
+        connection.setDoOutput(true);
+
+        try (OutputStream outputStream = connection.getOutputStream()) {
+            outputStream.write(json.getBytes(StandardCharsets.UTF_8));
+        }
+
+        if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+        	String errorMessage = ConnHelper.getErrorMessage(connection);
+            throw new IOException(errorMessage);
+        }
+
+        // get the response and convert to model
+        OpenaiImageResponse resModel = ConnHelper.convertSteamToModel(connection.getInputStream(), OpenaiImageResponse.class);
         return resModel;
     }
 }

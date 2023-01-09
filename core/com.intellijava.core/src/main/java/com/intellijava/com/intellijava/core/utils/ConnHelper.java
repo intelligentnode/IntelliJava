@@ -25,7 +25,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import com.google.gson.Gson;
-import com.intellijava.com.intellijava.core.model.OpenaiResponseModel;
+import com.intellijava.com.intellijava.core.model.OpenaiLanguageResponse;
 
 /**
  * 

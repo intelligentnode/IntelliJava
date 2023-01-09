@@ -16,22 +16,24 @@
 package com.intellijava.com.intellijava.core.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import com.intellijava.com.intellijava.core.model.OpenaiLanguageResponse;
+import com.intellijava.com.intellijava.core.model.OpenaiImageResponse;
+import com.intellijava.com.intellijava.core.model.OpenaiImageResponse.Data;
 import com.intellijava.com.intellijava.core.wrappers.OpenAIWrapper;
 
 /**
  * 
  * @author github.com/Barqawiz
  * 
- * A class to call the most sophisticated remote language models.
+ * A class to call the most sophisticated remote image models.
  * 
  * This version support Openai GPT model only, with a plan to add more models in the future.
  *
  */
-public class RemoteLanguageModel {
+public class RemoateImageModel {
 	
 	private String keyType;
 	private OpenAIWrapper openaiWrapper;
@@ -41,7 +43,7 @@ public class RemoteLanguageModel {
 	 * @param keyValue the API key.
 	 * @param keyType support openai only.
 	 */
-	public RemoteLanguageModel(String keyValue, String keyType) {
+	public RemoateImageModel(String keyValue, String keyType) {
 		
 		if (keyType == "" || keyType == "openai") {
 			this.keyType = "openai";
@@ -50,48 +52,53 @@ public class RemoteLanguageModel {
 			throw new IllegalArgumentException("This version support openai keyType only");
 		}
 	}
-	
+
 	
 	/**
-	 * Call a remote large model to generate any text based on the received prompt.
 	 * 
-	 * @param model the model name. the largest openai model is text-davinci-002 
+	 * Generate images from any text description.
+	 * 
 	 * @param prompt text of the required action or the question.
-	 * @param temperature higher values means more risks and creativity.
-	 * @param maxTokens maximum size of the model input and output.
-	 * @return string model response
+	 * @param numberOfImages number of the generated images.
+	 * @param imageSize 256x256, 512x512, or 1024x1024.
+	 * @return List of images URL.
 	 * @throws IOException
 	 */
-	public String generateText(String model, String prompt, float temperature, int maxTokens) throws IOException { 
+	public List<String> generateImages(String prompt, int numberOfImages, String imageSize) throws IOException { 
 		
 		if (this.keyType == "openai") {
-			return this.generateOpenaiText(model, prompt, temperature, maxTokens);
+			return this.generateOpenaiImage(prompt, numberOfImages, imageSize);
 		} else {
 			throw new IllegalArgumentException("This version support openai keyType only");
 		}
 		
 	}
-
+	
 	/**
 	 * 
-	 * @param model the model name, example: text-davinci-002. For more details about GPT3 models: https://beta.openai.com/docs/models/gpt-3
 	 * @param prompt text of the required action or the question.
-	 * @param temperature higher values means more risks and creativity.
-	 * @param maxTokens maximum size of the model input and output.
-	 * @return string model response.
+	 * @param numberOfImages number of the generated images.
+	 * @param imageSize 256x256, 512x512, or 1024x1024.
+	 * @return List of images URL.
 	 * @throws IOException
 	 */
-	private String generateOpenaiText(String model, String prompt, float temperature, int maxTokens) throws IOException { 
+	private List<String>  generateOpenaiImage(String prompt, int numberOfImages, String imageSize) throws IOException { 
+		
+		List<String> images = new ArrayList<>();
 		
 		Map<String, Object> params = new HashMap<>();
-        params.put("model", model);
-        params.put("prompt", prompt);
-        params.put("temperature", temperature);
-        params.put("max_tokens", maxTokens);
+		params.put("prompt", prompt);
+        params.put("n", numberOfImages);
+        params.put("size", imageSize);
         
-		OpenaiLanguageResponse resModel = (OpenaiLanguageResponse) openaiWrapper.generateText(params);
+        OpenaiImageResponse resModel = (OpenaiImageResponse) openaiWrapper.generateImages(params);
 		
-		return resModel.getChoices().get(0).getText();
+		List<Data> responseImages = resModel.getData();
+    	for (Data data: responseImages) {
+    		images.add(data.getUrl().toString());
+    	}
+    	
+		return images;
 		
 	}
 }

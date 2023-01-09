@@ -7,7 +7,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="jars/com.intellijava.core-0.2.jar"/>
 	<classpathentry kind="lib" path="jars/gson-2.8.9.jar"/>
+	<classpathentry kind="lib" path="jars/com.intellijava.core-0.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -6,7 +6,7 @@
 
   <groupId>com.intellijava</groupId>
   <artifactId>com.intellijava.core</artifactId>
-  <version>0.2</version>
+  <version>0.3</version>
 
   <name>com.intellijava.core</name>
   <url>https://github.com/Barqawiz/IntelliJava</url>
