@@ -1,5 +1,5 @@
 # IntelliJava-OpenaiAPI
-*IntelliJava V0.1*
+*IntelliJava V0.1 beta*
 
 IntelliJava allows java developers to easily integrate with the latest language models and deep learning frameworks like GPT-3 using few lines of code.
 The first version supports only Openai APIs. It provides a simple and intuitive API with convenient methods for sending text input to GPT-3 and receiving generated text in return.
