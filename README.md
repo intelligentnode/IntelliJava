@@ -4,6 +4,7 @@
 IntelliJava allows java developers to easily integrate with the latest language models and deep learning frameworks like GPT-3 using few lines of code.
 The first version supports only Openai APIs. It provides a simple and intuitive API with convenient methods for sending text input to GPT-3 and receiving generated text in return.
 
+
 # How to use
 1. Import the core jar file to your project [intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.1/com.intellijava.core-0.1-SNAPSHOT.jar).
 2. Add gson dependency using maven or the jar file (check the dependencies section).
@@ -76,3 +77,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+<img src="images/IntelliJava_logo.png" height="300px">
