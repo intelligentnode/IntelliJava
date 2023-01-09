@@ -1,3 +1,18 @@
+/**
+ * Copyright 2023 Github.com/Barqawiz/IntelliJava
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.intellijava.com.intellijava.core.wrappers;
 
 import java.io.IOException;
@@ -11,7 +26,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import com.intellijava.com.intellijava.core.model.BaseRemoteModel;
 import com.intellijava.com.intellijava.core.model.OpenaiResponseModel;
+import com.intellijava.com.intellijava.core.utils.Config2;
 import com.intellijava.com.intellijava.core.utils.ConnHelper;
 
 /**
@@ -21,9 +38,9 @@ import com.intellijava.com.intellijava.core.utils.ConnHelper;
  * A wrapper to hide the complexity of openai API.
  *
  */
-public class OpenAIWrapper {
+public class OpenAIWrapper implements LanguageModelInterface {
 	
-    private final String API_BASE_URL = "https://api.openai.com";
+    private final String API_BASE_URL = Config2.getInstance().getProperty("url.openai.base");
     private String API_KEY;
 
     /**
@@ -43,14 +60,9 @@ public class OpenAIWrapper {
      * @return the model response.
      * @throws IOException
      */
-    public OpenaiResponseModel generateText(String model, String prompt, float temperature, int maxTokens) throws IOException {
-        String url = API_BASE_URL + "/v1/completions";
-
-        Map<String, Object> params = new HashMap<>();
-        params.put("model", model);
-        params.put("prompt", prompt);
-        params.put("temperature", temperature);
-        params.put("max_tokens", maxTokens);
+    public BaseRemoteModel generateText(Map<String, Object> params) throws IOException {
+    	
+        String url = API_BASE_URL + Config2.getInstance().getProperty("url.openai.completions");
 
         String json = ConnHelper.convertMaptToJson(params);
 
@@ -65,7 +77,8 @@ public class OpenAIWrapper {
         }
 
         if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-            throw new IOException("Unexpected HTTP response: " + connection.getResponseCode());
+        	String errorMessage = ConnHelper.getErrorMessage(connection);
+            throw new IOException(errorMessage);
         }
 
         // get the response and convert to model 

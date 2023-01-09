@@ -6,11 +6,10 @@
 
   <groupId>com.intellijava</groupId>
   <artifactId>com.intellijava.core</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.2</version>
 
   <name>com.intellijava.core</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://github.com/Barqawiz/IntelliJava</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

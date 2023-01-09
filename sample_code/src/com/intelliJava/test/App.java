@@ -20,7 +20,7 @@ public class App {
         	
         	
         	// change the command to any text you want like write a funny short story.
-        	String command = "write a java code that says hello wrold";
+        	String command = "return a java code that says hello world";
         	String resValue = wrapper.generateText("text-davinci-002", command, 0.5F, 100);
 			
 			System.out.print(resValue);
