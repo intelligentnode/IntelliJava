@@ -17,6 +17,14 @@
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
+  <distributionManagement>
+  <repository>
+    <id>github</id>
+    <name>GitHub Apache Maven Packages</name>
+    <url>https://maven.pkg.github.com/Barqawiz/IntelliJava</url>
+  </repository>
+</distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -73,6 +81,7 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        
       </plugins>
     </pluginManagement>
   </build>
