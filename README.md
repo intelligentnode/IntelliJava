@@ -43,6 +43,16 @@ dependencies {
 For jar download:
 [gson download repo](https://search.maven.org/artifact/com.google.code.gson/gson/2.8.9/jar)
 
+
+# Roadmap
+Call for contributors:
+- [x] Add support to OpenAI Completion API.
+- [ ] Add support to OpenAI DALL·E 2 (under development).
+- [ ] Add support to other OpenAI functions.
+- [ ] Add support to Google language models.
+- [ ] Add support to Amazon language models.
+
+
 # License
 
 MIT License
