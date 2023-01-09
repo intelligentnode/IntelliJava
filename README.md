@@ -6,9 +6,21 @@ The first version supports only Openai APIs. It provides a simple and intuitive 
 
 
 # How to use
-1. Import the core jar file to your project [intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.3/com.intellijava.core-0.3.jar).
-2. Add gson dependency using maven or the jar file (check the dependencies section).
+1. Import the core jar file to your project or add the maven package (check Integration section).
+2. Add gson dependency using maven or the jar file (check dependencies section).
 3. Call the ``RemoteLanguageModel`` for the language model and ``RemoateImageModel`` for image generation.
+
+## Integration
+For maven:
+```
+<dependency>
+  <groupId>com.intellijava</groupId>
+  <artifactId>com.intellijava.core</artifactId>
+  <version>0.3</version>
+</dependency>
+```
+For jar integration download:
+[intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.3/com.intellijava.core-0.3.jar)
 
 ## Code Example
 **Language model code** (2 steps):
