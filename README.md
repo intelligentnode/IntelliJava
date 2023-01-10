@@ -11,16 +11,14 @@ The first version supports only Openai APIs. It provides a simple and intuitive 
 3. Call the ``RemoteLanguageModel`` for the language model and ``RemoateImageModel`` for image generation.
 
 ## Integration
-For maven:
-```
-<dependency>
-  <groupId>com.intellijava</groupId>
-  <artifactId>com.intellijava.core</artifactId>
-  <version>0.3</version>
-</dependency>
-```
+
 For jar integration download:
-[intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.3/com.intellijava.core-0.3.jar)
+[intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.3/com.intellijava.core-0.3.jar).
+
+For maven:
+[Add github dependency package](https://github.com/Barqawiz/IntelliJava/packages/1767035).
+
+For ready integration: try the sample_code.
 
 ## Code Example
 **Language model code** (2 steps):
