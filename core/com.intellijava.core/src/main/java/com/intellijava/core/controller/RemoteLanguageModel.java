@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.intellijava.com.intellijava.core.controller;
+package com.intellijava.core.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.intellijava.com.intellijava.core.model.OpenaiLanguageResponse;
-import com.intellijava.com.intellijava.core.wrappers.OpenAIWrapper;
+import com.intellijava.core.model.OpenaiLanguageResponse;
+import com.intellijava.core.model.input.LanguageModelInput;
+import com.intellijava.core.wrappers.OpenAIWrapper;
 
 /**
  * A class to call the most sophisticated remote language models.
@@ -60,23 +61,20 @@ public class RemoteLanguageModel {
 	
 	
 	/**
-     * Call a remote large model to generate any text based on the received prompt.
-     *
-     * This method takes in a model name, prompt, temperature and maxTokens and generates text using the OpenAI GPT-3 model.
-     *
-     * @param model the model name. The largest OpenAI model is text-davinci-002 
-     * @param prompt text of the required action or the question.
-     * @param temperature higher values means more risks and creativity.
-     * @param maxTokens maximum size of the model input and output.
-     * @return string model response.
-     * @throws IOException if there is an error when connecting to the OpenAI API.
-     * @throws IllegalArgumentException if the keyType passed in the constructor is not "openai".
-     * 
-     */
-	public String generateText(String model, String prompt, float temperature, int maxTokens) throws IOException { 
+	 * 
+	 * Call a remote large model to generate any text based on the received prompt.
+	 * 
+	 * @param langInput flexible builder for language model parameters.
+	 * @return string for the model response.
+	 * @throws IOException if there is an error when connecting to the OpenAI API.
+	 * @throws IllegalArgumentException if the keyType passed in the constructor is not "openai".
+	 * 
+	 */
+	public String generateText(LanguageModelInput langInput) throws IOException { 
 		
 		if (this.keyType == "openai") {
-			return this.generateOpenaiText(model, prompt, temperature, maxTokens);
+			return this.generateOpenaiText(langInput.getModel(), langInput.getPrompt(), 
+					langInput.getTemperature(), langInput.getMaxTokens());
 		} else {
 			throw new IllegalArgumentException("This version support openai keyType only");
 		}

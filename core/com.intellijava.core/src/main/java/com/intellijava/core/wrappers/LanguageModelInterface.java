@@ -13,33 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.intellijava.com.intellijava.core.model;
+package com.intellijava.core.wrappers;
 
+import java.io.IOException;
+import java.util.Map;
 
-/**
-* BaseRemoteModel is an abstract class that represents a common model with a basic parameter, id.
-* 
-* @author github.com/Barqawiz
-*/
-public abstract class BaseRemoteModel {
-	private String id;
-	
+import com.intellijava.core.model.BaseRemoteModel;
+
+public interface LanguageModelInterface {
+
 	/**
-     * Get the id of the model
-     * 
-     * @return the id
-     */
-	public String getId() {
-		return id;
-	}
-
-	
-	/**
-     * Sets the id of the model
-     * 
-     * @param id the id
-     */
-	public void setId(String id) {
-		this.id = id;
-	}
+	 * 
+	 * Generate text from remote large language model based on the received prompt.
+	 * 
+	 * @param params key and value for the API parameters
+	 * @return BaseRemoteModel or any sub class
+	 * @throws IOException
+	 */
+	public BaseRemoteModel generateText(Map<String, Object> params) throws IOException;
 }

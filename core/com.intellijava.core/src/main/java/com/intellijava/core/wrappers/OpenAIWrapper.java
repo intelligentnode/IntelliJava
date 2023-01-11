@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.intellijava.com.intellijava.core.wrappers;
+package com.intellijava.core.wrappers;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,11 +26,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.Gson;
-import com.intellijava.com.intellijava.core.model.BaseRemoteModel;
-import com.intellijava.com.intellijava.core.model.OpenaiImageResponse;
-import com.intellijava.com.intellijava.core.model.OpenaiLanguageResponse;
-import com.intellijava.com.intellijava.core.utils.Config2;
-import com.intellijava.com.intellijava.core.utils.ConnHelper;
+import com.intellijava.core.model.BaseRemoteModel;
+import com.intellijava.core.model.OpenaiImageResponse;
+import com.intellijava.core.model.OpenaiLanguageResponse;
+import com.intellijava.core.utils.Config2;
+import com.intellijava.core.utils.ConnHelper;
 
 /**
  * 

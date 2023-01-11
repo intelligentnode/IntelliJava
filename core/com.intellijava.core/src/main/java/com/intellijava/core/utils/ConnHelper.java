@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.intellijava.com.intellijava.core.utils;
+package com.intellijava.core.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +25,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import com.google.gson.Gson;
-import com.intellijava.com.intellijava.core.model.OpenaiLanguageResponse;
+import com.intellijava.core.model.OpenaiLanguageResponse;
 
 /**
  * ConnHelper is a class that contains common helper functions to call remote services.

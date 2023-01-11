@@ -13,16 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.intellijava.com.intellijava.core.controller;
+package com.intellijava.core.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.intellijava.com.intellijava.core.model.OpenaiImageResponse;
-import com.intellijava.com.intellijava.core.model.OpenaiImageResponse.Data;
-import com.intellijava.com.intellijava.core.wrappers.OpenAIWrapper;
+
+import com.intellijava.core.model.OpenaiImageResponse;
+import com.intellijava.core.model.OpenaiImageResponse.Data;
+import com.intellijava.core.model.input.ImageModelInput;
+import com.intellijava.core.wrappers.OpenAIWrapper;
 
 /**
  * 
@@ -58,23 +60,20 @@ public class RemoateImageModel {
 			throw new IllegalArgumentException("This version support openai keyType only");
 		}
 	}
-
 	
 	/**
 	 * 
 	 * Generates images from a given text description.
 	 * 
-	 * @param prompt text of the required action or the question.
-	 * @param numberOfImages number of the generated images.
-	 * @param imageSize size of the generated images, options are: 256x256, 512x512, or 1024x1024.
-	 * @return list of URLs of the generated images
-	 * @throws IOException if there is a problem with the API connection
-	 * 
+	 * @param imageInput flexible builder for image model parameters.
+	 * @return list of URLs of the generated images.
+	 * @throws IOException if there is a problem with the API connection.
 	 */
-	public List<String> generateImages(String prompt, int numberOfImages, String imageSize) throws IOException { 
+	public List<String> generateImages(ImageModelInput imageInput) throws IOException { 
 		
 		if (this.keyType == "openai") {
-			return this.generateOpenaiImage(prompt, numberOfImages, imageSize);
+			return this.generateOpenaiImage(imageInput.getPrompt(), 
+					imageInput.getNumberOfImages(), imageInput.getImageSize());
 		} else {
 			throw new IllegalArgumentException("This version support openai keyType only");
 		}
@@ -89,7 +88,8 @@ public class RemoateImageModel {
 	 * @param numberOfImages number of the generated images.
 	 * @param imageSize size of the generated images, options are: 256x256, 512x512, or 1024x1024.
 	 * @return list of URLs of the generated images
-	 * @throws IOException if there is a problem with the API connection
+	 * @throws IOException if there is a problem with the API connection.
+	 * 
 	 */
 	private List<String>  generateOpenaiImage(String prompt, int numberOfImages, String imageSize) throws IOException { 
 		

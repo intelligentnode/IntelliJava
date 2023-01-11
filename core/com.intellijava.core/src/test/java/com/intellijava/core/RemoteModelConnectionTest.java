@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.intellijava.com.intellijava.core;
+package com.intellijava.core;
 
 
 import static org.junit.Assert.fail;
@@ -22,15 +22,16 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.junit.Test;
+import com.intellijava.core.controller.RemoateImageModel;
+import com.intellijava.core.controller.RemoteLanguageModel;
+import com.intellijava.core.model.OpenaiImageResponse;
+import com.intellijava.core.model.OpenaiImageResponse.Data;
+import com.intellijava.core.model.input.ImageModelInput;
+import com.intellijava.core.model.input.LanguageModelInput;
+import com.intellijava.core.utils.Config2;
+import com.intellijava.core.wrappers.OpenAIWrapper;
 
-import com.intellijava.com.intellijava.core.controller.RemoateImageModel;
-import com.intellijava.com.intellijava.core.controller.RemoteLanguageModel;
-import com.intellijava.com.intellijava.core.model.OpenaiImageResponse;
-import com.intellijava.com.intellijava.core.model.OpenaiImageResponse.Data;
-import com.intellijava.com.intellijava.core.utils.Config2;
-import com.intellijava.com.intellijava.core.wrappers.OpenAIWrapper;
 
 /**
  * Unit test for Remote Language Model
@@ -53,13 +54,16 @@ public class RemoteModelConnectionTest {
 			if (openaiKey.isBlank()) return;
 			
 			RemoteLanguageModel wrapper = new RemoteLanguageModel(openaiKey, "openai");
-
-			String resValue = wrapper.generateText("text-davinci-002", "What is chatgpt ? include the word ChatGPT", 0.5F, 100);
+			
+			LanguageModelInput input = new LanguageModelInput.Builder("return a java code that print hello world")
+	                .setModel("text-davinci-002").setTemperature(0.7f).setMaxTokens(50).build();
+			
+			String resValue = wrapper.generateText(input);
 
 			System.out.print(resValue);
 			
 			assert resValue.length() > 0;
-			assert resValue.toLowerCase().contains("chatgpt");
+			assert resValue.toLowerCase().contains("world");
 
 		} catch (IOException e) {
 			if (openaiKey.isBlank()) {
@@ -118,14 +122,14 @@ public class RemoteModelConnectionTest {
 		
 		// prepare the input parameters
 		String prompt = "teddy writing a blog in times square";
-		int n = 2;
-		String size = "1024x1024";
 		
 		try {
 
 			RemoateImageModel wrapper = new RemoateImageModel(openaiKey, "openai");
+			ImageModelInput input = new ImageModelInput.Builder(prompt) 
+					.setNumberOfImages(2).setImageSize("1024x1024").build();
 			
-			List<String> images = wrapper.generateImages(prompt, n, size);
+			List<String> images = wrapper.generateImages(input);
 			
 			for (String image:images) {
 				System.out.print(image);

@@ -1,9 +1,9 @@
-package com.intellijava.com.intellijava.core.wrappers;
+package com.intellijava.core.wrappers;
 
 import java.io.IOException;
 import java.util.Map;
 
-import com.intellijava.com.intellijava.core.model.BaseRemoteModel;
+import com.intellijava.core.model.BaseRemoteModel;
 
 public interface ImageModelInterface {
 

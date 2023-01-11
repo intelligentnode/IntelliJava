@@ -1,4 +1,4 @@
-package com.intellijava.com.intellijava.core.model;
+package com.intellijava.core.model;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;

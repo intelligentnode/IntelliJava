@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 package com.intelliJava.test;
+
 import java.io.IOException;
 import java.util.List;
-
-import com.intellijava.com.intellijava.core.controller.RemoateImageModel;
-import com.intellijava.com.intellijava.core.controller.RemoteLanguageModel;
+import com.intellijava.core.controller.RemoateImageModel;
+import com.intellijava.core.controller.RemoteLanguageModel;
+import com.intellijava.core.model.input.ImageModelInput;
+import com.intellijava.core.model.input.LanguageModelInput;
 
 /**
  * 
@@ -29,55 +31,62 @@ import com.intellijava.com.intellijava.core.controller.RemoteLanguageModel;
 public class App {
 
 	public static void main(String[] args) {
-		
-		System.out.println( "Start calling the API!" );
-        
-        try {
-        	
-        	// get the api key from https://openai.com/api/
-        	// TODO: replace <openai-api-key> with your API key.
-        	String apiKey = "<openai-api-key>";
-        	
-        	/********************************/
-        	/** 1- Call the language model **/
-        	/********************************/
-        	
-        	// initiate the remote language model wrapper with openai details
-        	RemoteLanguageModel langModel = new RemoteLanguageModel(apiKey, "openai");
-        	
-        	// change the command to any text you want like write a funny short story
-        	String command = "return a java code that says hello world";
-        	String resValue = langModel.generateText("text-davinci-002", command, 0.5F, 100);
-			
-        	//print language model output
-			System.out.println("Language model output:\n"+resValue);
-			
-			
+
+		System.out.println("Start calling the API!");
+
+		try {
+
+			// get the api key from https://openai.com/api/
+			// TODO: replace <openai-api-key> with your API key.
+			String apiKey = "<openai-api-key>";
+
+			/********************************/
+			/** 1- Call the language model **/
+			/********************************/
+			tryTheLanguageModel(apiKey);
+
 			/******************************/
 			/** 2- Call image generation **/
 			/******************************/
-			
-			// initiate the remote image model wrapper
-			RemoateImageModel imageModel = new RemoateImageModel(apiKey, "openai");
-			
-			// prepare the input parameters
-			String prompt = "teddy writing a blog in times square";
-			int n = 2;
-			String size = "1024x1024";
-			
-			// call the model
-			List<String> images = imageModel.generateImages(prompt, n/*number of images*/, size);
-			
-			// print images links
-			System.out.println("Images links:");
-			for (String image:images) {
-				System.out.println(image);
-			}
-			
+			tryTheImageModel(apiKey);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
+	}
+
+	private static void tryTheLanguageModel(String apiKey) throws IOException {
+		// initiate the remote language model wrapper with openai details
+		RemoteLanguageModel langModel = new RemoteLanguageModel(apiKey, "openai");
+
+		// prepare the input parameters - change the prompt to any text like "write a
+		// funny short story"
+		LanguageModelInput langInput = new LanguageModelInput.Builder("return a java code that says hello world")
+				.setModel("text-davinci-002").setTemperature(0.7f).setMaxTokens(50).build();
+
+		String resValue = langModel.generateText(langInput);
+
+		// print language model output
+		System.out.println("Language model output:\n" + resValue);
+	}
+
+	private static void tryTheImageModel(String apiKey) throws IOException {
+		// initiate the remote image model wrapper
+		RemoateImageModel imageModel = new RemoateImageModel(apiKey, "openai");
+
+		// prepare the input parameters
+		ImageModelInput imageInput = new ImageModelInput.Builder("teddy writing a blog in times square")
+				.setNumberOfImages(2).setImageSize("1024x1024").build();
+
+		// call the model
+		List<String> images = imageModel.generateImages(imageInput);
+
+		// print images links
+		System.out.println("Images links:");
+		for (String image : images) {
+			System.out.println(image);
+		}
 	}
 
 }

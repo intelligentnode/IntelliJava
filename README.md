@@ -1,5 +1,5 @@
 # IntelliJava-OpenaiAPI
-*IntelliJava V0.3*
+*IntelliJava V0.4.0*
 
 IntelliJava allows java developers to easily integrate with the latest language models and deep learning frameworks using few lines of java code.
 The first version supports only Openai APIs. It provides a simple and intuitive API with convenient methods for sending text input to models like (GPT-3 and DALL·E) and receiving generated text or images in return.
@@ -16,34 +16,38 @@ For jar integration download:
 [intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.3/com.intellijava.core-0.3.jar).
 
 For maven:
-[Add github dependency package](https://github.com/Barqawiz/IntelliJava/packages/1767035).
+```
+to be updated.
+```
 
 For ready integration: try the sample_code.
 
 ## Code Example
 **Language model code** (2 steps):
-```
+```java
 // 1- initiate the remote language model 
 String apiKey = "<add-openai-api-key>";
 RemoteLanguageModel langModel = new RemoteLanguageModel(apiKey, "openai");
 
 // 2- call generateText with any command !
-String command = "return a java code that says hello wrold";
-String resValue = langModel.generateText("text-davinci-002", command, 0.5F, 100);
+LanguageModelInput langInput = new LanguageModelInput.Builder("return a java code that says hello world")
+                .setModel("text-davinci-002").setTemperature(0.7f).setMaxTokens(50).build();
+String resValue = langModel.generateText(langInput);
 ```
 Output:
 ``` System.out.println("Hello, World!");```<br><br>
 **Image generation code** (2 steps):
-```
+```java
 // 1- initiate the remote image model 
 RemoateImageModel imageModel = new RemoateImageModel(apiKey, "openai");
 
 // 2- call generateImages with any command !
-String prompt = "teddy writing a blog in times square";
-List<String> images = imageModel.generateImages(prompt, 2/*number of images*/, "1024x1024");
+ImageModelInput imageInput = new ImageModelInput.Builder("teddy writing a blog in times square")
+                .setNumberOfImages(2).setImageSize("1024x1024").build();
+List<String> images = imageModel.generateImages(imageInput);
 ```
 Output:<br>
-<img src="images/response_image.png" height="250px">
+<img src="images/response_image.png" height="220px">
 
 For full example check the code inside sample_code project.
 
