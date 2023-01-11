@@ -15,13 +15,30 @@
  */
 package com.intellijava.com.intellijava.core.model;
 
+
+/**
+* BaseRemoteModel is an abstract class that represents a common model with a basic parameter, id.
+* 
+* @author github.com/Barqawiz
+*/
 public abstract class BaseRemoteModel {
 	private String id;
 	
+	/**
+     * Get the id of the model
+     * 
+     * @return the id
+     */
 	public String getId() {
 		return id;
 	}
 
+	
+	/**
+     * Sets the id of the model
+     * 
+     * @param id the id
+     */
 	public void setId(String id) {
 		this.id = id;
 	}

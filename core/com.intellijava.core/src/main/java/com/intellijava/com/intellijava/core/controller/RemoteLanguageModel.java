@@ -23,13 +23,13 @@ import com.intellijava.com.intellijava.core.model.OpenaiLanguageResponse;
 import com.intellijava.com.intellijava.core.wrappers.OpenAIWrapper;
 
 /**
- * 
+ * A class to call the most sophisticated remote language models.
+ *
+ * This class provides an API for interacting with OpenAI's GPT-3 language model. It is designed to be easily extensible
+ * to support other models in the future.
+ *
  * @author github.com/Barqawiz
  * 
- * A class to call the most sophisticated remote language models.
- * 
- * This version support Openai GPT model only, with a plan to add more models in the future.
- *
  */
 public class RemoteLanguageModel {
 	
@@ -37,10 +37,17 @@ public class RemoteLanguageModel {
 	private OpenAIWrapper openaiWrapper;
 	
 	/**
-	 * 
-	 * @param keyValue the API key.
-	 * @param keyType support openai only.
-	 */
+     * Constructor for the RemoteLanguageModel class.
+     *
+     * Creates an instance of the class and sets up the API key and the key type. 
+     * Currently, only the "openai" key type is supported.
+     *
+     * @param keyValue the API key.
+     * @param keyType support openai only.
+     *
+     * @throws IllegalArgumentException if the keyType passed is not "openai".
+     * 
+     */
 	public RemoteLanguageModel(String keyValue, String keyType) {
 		
 		if (keyType == "" || keyType == "openai") {
@@ -53,15 +60,19 @@ public class RemoteLanguageModel {
 	
 	
 	/**
-	 * Call a remote large model to generate any text based on the received prompt.
-	 * 
-	 * @param model the model name. the largest openai model is text-davinci-002 
-	 * @param prompt text of the required action or the question.
-	 * @param temperature higher values means more risks and creativity.
-	 * @param maxTokens maximum size of the model input and output.
-	 * @return string model response
-	 * @throws IOException
-	 */
+     * Call a remote large model to generate any text based on the received prompt.
+     *
+     * This method takes in a model name, prompt, temperature and maxTokens and generates text using the OpenAI GPT-3 model.
+     *
+     * @param model the model name. The largest OpenAI model is text-davinci-002 
+     * @param prompt text of the required action or the question.
+     * @param temperature higher values means more risks and creativity.
+     * @param maxTokens maximum size of the model input and output.
+     * @return string model response.
+     * @throws IOException if there is an error when connecting to the OpenAI API.
+     * @throws IllegalArgumentException if the keyType passed in the constructor is not "openai".
+     * 
+     */
 	public String generateText(String model, String prompt, float temperature, int maxTokens) throws IOException { 
 		
 		if (this.keyType == "openai") {
@@ -73,14 +84,16 @@ public class RemoteLanguageModel {
 	}
 
 	/**
-	 * 
-	 * @param model the model name, example: text-davinci-002. For more details about GPT3 models: https://beta.openai.com/docs/models/gpt-3
-	 * @param prompt text of the required action or the question.
-	 * @param temperature higher values means more risks and creativity.
-	 * @param maxTokens maximum size of the model input and output.
-	 * @return string model response.
-	 * @throws IOException
-	 */
+     * Private helper method for generating text from OpenAI GPT-3 model.
+     *
+     * @param model the model name, example: text-davinci-002. For more details about GPT-3 models, see: https://beta.openai.com/docs/models/gpt-3
+     * @param prompt text of the required action or the question.
+     * @param temperature higher values means more risks and creativity.
+     * @param maxTokens maximum size of the model input and output.
+     * @return string model response.
+     * @throws IOException if there is an error when connecting to the OpenAI API.
+     * 
+     */
 	private String generateOpenaiText(String model, String prompt, float temperature, int maxTokens) throws IOException { 
 		
 		Map<String, Object> params = new HashMap<>();

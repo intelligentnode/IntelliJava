@@ -34,10 +34,10 @@ import com.intellijava.com.intellijava.core.utils.ConnHelper;
 
 /**
  * 
- * @author @author  github.com/Barqawiz
- * 
- * A wrapper to hide the complexity of openai API.
+ * OpenAIWrapper is a wrapper for the OpenAI API, providing a simplified interface for interacting with the API.
  *
+ * @author github.com/Barqawiz
+ * 
  */
 public class OpenAIWrapper implements LanguageModelInterface, ImageModelInterface {
 	
@@ -62,7 +62,7 @@ public class OpenAIWrapper implements LanguageModelInterface, ImageModelInterfac
 	 * 			temperature higher values means more risks and creativity.
 	 * 			maxTokens maximum size of the model input and output.
 	 * @return BaseRemoteModel for model response
-	 * @throws IOException
+	 * @throws IOException if there is an error when connecting to the OpenAI API.
 	 */
     public BaseRemoteModel generateText(Map<String, Object> params) throws IOException {
     	
@@ -97,7 +97,7 @@ public class OpenAIWrapper implements LanguageModelInterface, ImageModelInterfac
      * 			n: number of the generated images.
      * 			size: 256x256, 512x512, or 1024x1024.
      * @return
-     * @throws IOException
+     * @throws IOException if there is an error when connecting to the OpenAI API.
      */
     public BaseRemoteModel generateImages(Map<String, Object> params) throws IOException {
     	

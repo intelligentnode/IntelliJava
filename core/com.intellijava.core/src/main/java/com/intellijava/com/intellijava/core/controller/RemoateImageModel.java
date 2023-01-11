@@ -26,12 +26,11 @@ import com.intellijava.com.intellijava.core.wrappers.OpenAIWrapper;
 
 /**
  * 
- * @author github.com/Barqawiz
- * 
- * A class to call the most sophisticated remote image models.
- * 
- * This version support Openai GPT model only, with a plan to add more models in the future.
+ * The RemoteImageModel class is used to generate images from text descriptions using an API key.
+ * It currently supports OpenAI only. 
+ * The class uses the OpenAIWrapper to generate the images and returns a list of URLs for the generated images.
  *
+ * @author github.com/Barqawiz
  */
 public class RemoateImageModel {
 	
@@ -40,8 +39,15 @@ public class RemoateImageModel {
 	
 	/**
 	 * 
+	 * Constructor for creating a new RemoteImageModel object.
+	 * 
+	 * Creates an instance of the class and sets up the API key and the key type.
+	 * 
 	 * @param keyValue the API key.
 	 * @param keyType support openai only.
+	 * 
+	 * @throws IllegalArgumentException if the keyType passed is not "openai".
+	 * 
 	 */
 	public RemoateImageModel(String keyValue, String keyType) {
 		
@@ -56,13 +62,14 @@ public class RemoateImageModel {
 	
 	/**
 	 * 
-	 * Generate images from any text description.
+	 * Generates images from a given text description.
 	 * 
 	 * @param prompt text of the required action or the question.
 	 * @param numberOfImages number of the generated images.
-	 * @param imageSize 256x256, 512x512, or 1024x1024.
-	 * @return List of images URL.
-	 * @throws IOException
+	 * @param imageSize size of the generated images, options are: 256x256, 512x512, or 1024x1024.
+	 * @return list of URLs of the generated images
+	 * @throws IOException if there is a problem with the API connection
+	 * 
 	 */
 	public List<String> generateImages(String prompt, int numberOfImages, String imageSize) throws IOException { 
 		
@@ -76,11 +83,13 @@ public class RemoateImageModel {
 	
 	/**
 	 * 
+	 * Generates images from a given text description using OpenAI service.
+	 * 
 	 * @param prompt text of the required action or the question.
 	 * @param numberOfImages number of the generated images.
-	 * @param imageSize 256x256, 512x512, or 1024x1024.
-	 * @return List of images URL.
-	 * @throws IOException
+	 * @param imageSize size of the generated images, options are: 256x256, 512x512, or 1024x1024.
+	 * @return list of URLs of the generated images
+	 * @throws IOException if there is a problem with the API connection
 	 */
 	private List<String>  generateOpenaiImage(String prompt, int numberOfImages, String imageSize) throws IOException { 
 		

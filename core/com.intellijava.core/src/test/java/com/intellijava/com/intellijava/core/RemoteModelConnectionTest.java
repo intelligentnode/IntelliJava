@@ -35,7 +35,7 @@ import com.intellijava.com.intellijava.core.wrappers.OpenAIWrapper;
 /**
  * Unit test for Remote Language Model
  */
-public class RemoteLanguageModelTest {
+public class RemoteModelConnectionTest {
 	
 	/**
 	 * openaiKey - change the openaiKey 
@@ -50,6 +50,8 @@ public class RemoteLanguageModelTest {
 		
 		try {
 
+			if (openaiKey.isBlank()) return;
+			
 			RemoteLanguageModel wrapper = new RemoteLanguageModel(openaiKey, "openai");
 
 			String resValue = wrapper.generateText("text-davinci-002", "What is chatgpt ? include the word ChatGPT", 0.5F, 100);
@@ -71,6 +73,8 @@ public class RemoteLanguageModelTest {
 	
 	@Test
 	public void testImageWrapper() {
+		
+		if (openaiKey.isBlank()) return;
 		
 		// prepare the object
 		OpenAIWrapper openaiWrapper = new OpenAIWrapper(openaiKey);
@@ -109,6 +113,8 @@ public class RemoteLanguageModelTest {
 	
 	@Test
 	public void testOpenaiImageRemoteModel() { 
+		
+		if (openaiKey.isBlank()) return;
 		
 		// prepare the input parameters
 		String prompt = "teddy writing a blog in times square";

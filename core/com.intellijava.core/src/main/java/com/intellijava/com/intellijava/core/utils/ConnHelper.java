@@ -28,11 +28,9 @@ import com.google.gson.Gson;
 import com.intellijava.com.intellijava.core.model.OpenaiLanguageResponse;
 
 /**
+ * ConnHelper is a class that contains common helper functions to call remote services.
  * 
- * @author  github.com/Barqawiz
- * 
- * Common helper functions to call remote services.
- *
+ * @author github.com/Barqawiz
  */
 public class ConnHelper {
 
@@ -40,8 +38,9 @@ public class ConnHelper {
 	
 	/**
 	 * Convert a map of string key and object value to Json string.
-	 * @param params any key and value.
-	 * @return
+	 * 
+	 * @param params a map of key-value pairs to be converted to json.
+	 * @return a json string representation of the provided map.
 	 */
 	public static String convertMaptToJson(Map<String, Object> params) {
 		
@@ -53,8 +52,8 @@ public class ConnHelper {
 	 * 
 	 * @param <T> the type of the response model.
 	 * @param stream input stream from the called API.
-	 * @param classOfT the type of the response model.
-	 * @return parsed response model T
+	 * @param classOfT the class type of the response model.
+	 * @return an instance of the provided class type, T, that represents the API response.
 	 */
 	public static <T> T convertSteamToModel(InputStream stream, Class<T> classOfT) {
 		
@@ -65,6 +64,13 @@ public class ConnHelper {
 	}
 	
 	
+	/**
+	 * Get the error message from an HttpURLConnection.
+	 * 
+	 * @param connection the HttpURLConnection from which to get the error message.
+	 * @return the error message as a string.
+	 * @throws IOException if there is an issue reading the error stream.
+	 */
 	public static String getErrorMessage(HttpURLConnection connection) throws IOException {
 		
 		String apiErrorMessage = readStream(connection.getErrorStream());
@@ -79,6 +85,13 @@ public class ConnHelper {
 		return errorMessage;
 	}
 	
+	/**
+	 * Read an input stream and return its contents as a string.
+	 * 
+	 * @param stream the input stream to read.
+	 * @return the contents of the input stream as a string.
+	 * @throws IOException if there is an issue reading the input stream.
+	 */
 	public static String readStream(InputStream stream) throws IOException {
 		  StringBuilder result = new StringBuilder();
 		  try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
