@@ -50,13 +50,13 @@ public class RemoteModelConnectionTest {
 	public void testOpenaiCompletionRemoteModel() {
 		
 		try {
-
-			if (openaiKey.isBlank()) return;
 			
 			RemoteLanguageModel wrapper = new RemoteLanguageModel(openaiKey, "openai");
 			
 			LanguageModelInput input = new LanguageModelInput.Builder("return a java code that print hello world")
 	                .setModel("text-davinci-002").setTemperature(0.7f).setMaxTokens(50).build();
+			
+			if (openaiKey.isBlank()) return;
 			
 			String resValue = wrapper.generateText(input);
 
@@ -78,8 +78,6 @@ public class RemoteModelConnectionTest {
 	@Test
 	public void testImageWrapper() {
 		
-		if (openaiKey.isBlank()) return;
-		
 		// prepare the object
 		OpenAIWrapper openaiWrapper = new OpenAIWrapper(openaiKey);
 		
@@ -93,9 +91,10 @@ public class RemoteModelConnectionTest {
         params.put("n", n);
         params.put("size", size);
         
-        
         // call the API
         try {
+        	if (openaiKey.isBlank()) return;
+        	
         	OpenaiImageResponse resModel = (OpenaiImageResponse) openaiWrapper.generateImages(params);
         	
         	List<Data> responseImages = resModel.getData();
@@ -118,8 +117,6 @@ public class RemoteModelConnectionTest {
 	@Test
 	public void testOpenaiImageRemoteModel() { 
 		
-		if (openaiKey.isBlank()) return;
-		
 		// prepare the input parameters
 		String prompt = "teddy writing a blog in times square";
 		
@@ -128,6 +125,8 @@ public class RemoteModelConnectionTest {
 			RemoateImageModel wrapper = new RemoateImageModel(openaiKey, "openai");
 			ImageModelInput input = new ImageModelInput.Builder(prompt) 
 					.setNumberOfImages(2).setImageSize("1024x1024").build();
+			
+			if (openaiKey.isBlank()) return;
 			
 			List<String> images = wrapper.generateImages(input);
 			
