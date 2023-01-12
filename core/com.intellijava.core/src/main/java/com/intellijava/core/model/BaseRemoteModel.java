@@ -25,6 +25,13 @@ public abstract class BaseRemoteModel {
 	private String id;
 	
 	/**
+	 * BaseRemoteModel default constructor.
+	 */
+	public BaseRemoteModel() {
+		
+	}
+	
+	/**
      * Get the id of the model
      * 
      * @return the id

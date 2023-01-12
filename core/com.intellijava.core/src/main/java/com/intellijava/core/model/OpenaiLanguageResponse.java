@@ -33,6 +33,13 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
     private Usage usage;
 
     /**
+     * OpenaiLanguageResponse default constructor.
+     */
+    public OpenaiLanguageResponse() {
+    	
+    }
+    
+    /**
      * A nested class that represents an choice object returned in the API response.
      */
     public static class Choice {
@@ -43,6 +50,13 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
         private int index;
         private Object logprobs;
         private String finish_reason;
+        
+        /**
+         * Choice default constructor.
+         */
+        public Choice() {
+        	
+        }
         
         /**
          * Get the text property of the choice object
@@ -119,6 +133,14 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
         private int prompt_tokens;
         private int completion_tokens;
         private int total_tokens;
+        
+        /**
+         * Usage default constructor.
+         */
+        public Usage() {
+        	
+        }
+        
         /**
          * Get the prompt_tokens property
          * 

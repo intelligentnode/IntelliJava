@@ -29,8 +29,8 @@ public class ImageModelInput {
     private String imageSize;
     
     /**
-     * Private Constructor for the Builder
-     * @param builder: instance of Builder
+     * Private Constructor for the Builder.
+     * @param builder instance of Builder
      */
     private ImageModelInput(Builder builder) { 
     	this.prompt = builder.prompt;
@@ -46,7 +46,8 @@ public class ImageModelInput {
         private int numberOfImages;
         private String imageSize;
         /**
-         * Constructor
+         * Image input Constructor.
+         * @param prompt : the text of the required action or the question.
          */
         public Builder(String prompt) {
         	this.prompt = prompt;
@@ -55,7 +56,7 @@ public class ImageModelInput {
         /**
          *  Setter for prompt
          * @param prompt : the text of the required action or the question.
-         * @return: instance of Builder
+         * @return instance of Builder
          */
         public Builder setPrompt(String prompt) {
             this.prompt = prompt;
@@ -65,7 +66,7 @@ public class ImageModelInput {
         /**
          *  Setter for numberOfImages
          * @param numberOfImages : the number of the generated images.
-         * @return: instance of Builder
+         * @return instance of Builder
          */
         public Builder setNumberOfImages(int numberOfImages) {
             this.numberOfImages = numberOfImages;
@@ -75,7 +76,7 @@ public class ImageModelInput {
         /**
          *  Setter for imageSize
          * @param imageSize : the size of the generated images, options are: 256x256, 512x512, or 1024x1024.
-         * @return: instance of Builder
+         * @return instance of Builder
          */
         public Builder setImageSize(String imageSize) {
             this.imageSize = imageSize;
@@ -83,32 +84,32 @@ public class ImageModelInput {
         }
 
         /**
-         * Build the final ImageModelInput object
-         * @return: final ImageModelInput object
+         * Build the final ImageModelInput object.
+         * @return final ImageModelInput object
          */
         public ImageModelInput build() {
             return new ImageModelInput(this);
         }
     }
     /**
-     * Getter for prompt
-     * @return: prompt
+     * Getter for prompt.
+     * @return prompt
      */
     public String getPrompt() {
         return prompt;
     }
 
     /**
-     * Getter for numberOfImages
-     * @return: numberOfImages
+     * Getter for numberOfImages.
+     * @return numberOfImages
      */
     public int getNumberOfImages() {
         return numberOfImages;
     }
 
     /**
-     * Getter for imageSize
-     * @return: imageSize
+     * Getter for imageSize.
+     * @return imageSize
      */
     public String getImageSize() {
         return imageSize;

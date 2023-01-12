@@ -112,49 +112,13 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        <!-- maven publish plugin -->
-	    <plugin>
-	      <groupId>org.sonatype.plugins</groupId>
-	      <artifactId>nexus-staging-maven-plugin</artifactId>
-	      <version>1.6.7</version>
-	      <extensions>true</extensions>
-	      <configuration>
-	        <serverId>ossrh</serverId>
-	        <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-	        <autoReleaseAfterClose>true</autoReleaseAfterClose>
-	      </configuration>
-	    </plugin>
-	    <!-- java doc generation -->
-	    <plugin>
-	      <groupId>org.apache.maven.plugins</groupId>
-	      <artifactId>maven-source-plugin</artifactId>
-	      <version>2.2.1</version>
-	      <executions>
-	        <execution>
-	          <id>attach-sources</id>
-	          <goals>
-	            <goal>jar-no-fork</goal>
-	          </goals>
-	        </execution>
-	      </executions>
-	    </plugin>
-	    <plugin>
-	      <groupId>org.apache.maven.plugins</groupId>
-	      <artifactId>maven-javadoc-plugin</artifactId>
-	      <version>2.9.1</version>
-	      <executions>
-	        <execution>
-	          <id>attach-javadocs</id>
-	          <goals>
-	            <goal>jar</goal>
-	          </goals>
-	        </execution>
-	      </executions>
-	    </plugin>
-	    <!-- GPG Signed Components -->
-	    <!-- TODO: generate GPG keys and back to: https://central.sonatype.org/publish/publish-maven/ -->
-	    <!-- https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key -->
-	    <plugin>
+        
+      </plugins>
+    </pluginManagement>
+    
+    <plugins>
+    	<!-- GPG Signed Components -->
+    	<plugin>
 	      <groupId>org.apache.maven.plugins</groupId>
 	      <artifactId>maven-gpg-plugin</artifactId>
 	      <version>1.5</version>
@@ -168,7 +132,47 @@
 	        </execution>
 	      </executions>
 	    </plugin>
-      </plugins>
-    </pluginManagement>
+	    <!-- maven publish plugin -->
+	    <plugin>
+		  <groupId>org.sonatype.plugins</groupId>
+		  <artifactId>nexus-staging-maven-plugin</artifactId>
+		  <version>1.6.12</version>
+		  <extensions>true</extensions>
+		  <configuration>
+		     <serverId>ossrh</serverId>
+		     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+		     <autoReleaseAfterClose>true</autoReleaseAfterClose>
+		  </configuration>
+		</plugin>
+	    <!-- sources -->
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-source-plugin</artifactId>
+	        <version>3.2.1</version>
+	        <executions>
+	          <execution>
+	            <id>attach-sources</id>
+	            <phase>verify</phase>
+	            <goals>
+	              <goal>jar-no-fork</goal>
+	            </goals>
+	          </execution>
+	        </executions>
+	      </plugin>
+	       <!-- java doc -->
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-javadoc-plugin</artifactId>
+	        <version>3.4.1</version>
+	        <executions>
+	        <execution>
+	          <id>attach-javadocs</id>
+	          <goals>
+	            <goal>jar</goal>
+	          </goals>
+	        </execution>
+	      </executions>
+      </plugin>
+  	</plugins>
   </build>
 </project>

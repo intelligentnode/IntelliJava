@@ -45,6 +45,7 @@ public class OpenAIWrapper implements LanguageModelInterface, ImageModelInterfac
     private String API_KEY;
 
     /**
+     * OpenAIWrapper constructor with the API key
      * 
      * @param apiKey openai API key, generate if from your account.
      */
@@ -92,11 +93,13 @@ public class OpenAIWrapper implements LanguageModelInterface, ImageModelInterfac
     
     /**
      * 
+     * Generate image from openai image model.
+     * 
      * @param params should include prompt, n, size
      * 			prompt: text of the required action or the question.
      * 			n: number of the generated images.
      * 			size: 256x256, 512x512, or 1024x1024.
-     * @return
+     * @return BaseRemoteModel
      * @throws IOException if there is an error when connecting to the OpenAI API.
      */
     public BaseRemoteModel generateImages(Map<String, Object> params) throws IOException {

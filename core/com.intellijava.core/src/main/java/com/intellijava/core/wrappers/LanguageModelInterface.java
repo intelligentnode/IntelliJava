@@ -20,15 +20,22 @@ import java.util.Map;
 
 import com.intellijava.core.model.BaseRemoteModel;
 
+/**
+ * 
+ * ImageModelInterface represent the standard methods for any model that generate text.
+ * 
+ * @author github.com/Barqawiz
+ *
+ */
 public interface LanguageModelInterface {
 
 	/**
 	 * 
 	 * Generate text from remote large language model based on the received prompt.
 	 * 
-	 * @param params key and value for the API parameters
-	 * @return BaseRemoteModel or any sub class
-	 * @throws IOException
+	 * @param params key and value for the API parameters.
+	 * @return BaseRemoteModel or any sub class.
+	 * @throws IOException if there is an error when connecting to the server.
 	 */
 	public BaseRemoteModel generateText(Map<String, Object> params) throws IOException;
 }

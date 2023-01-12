@@ -37,6 +37,13 @@ public class ConnHelper {
 	private static Gson gson = new Gson();
 	
 	/**
+	 * ConnHelper default constructor.
+	 */
+	public ConnHelper() {
+		
+	}
+	
+	/**
 	 * Convert a map of string key and object value to Json string.
 	 * 
 	 * @param params a map of key-value pairs to be converted to json.

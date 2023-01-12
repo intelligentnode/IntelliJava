@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
  * 
  * The class contains a nested call Data
  * 
- * @author barqawi
+ * @author github.com/Barqawiz
  */
 public class OpenaiImageResponse extends BaseRemoteModel {
 
@@ -17,12 +17,26 @@ public class OpenaiImageResponse extends BaseRemoteModel {
 
 
 	private List<Data> data;
+	
+	/**
+	 * OpenaiImageResponse default constructor.
+	 */
+	public OpenaiImageResponse() {
+		
+	}
 
 	/**
      * A nested class that represents an image object returned in the API response.
      */
 	public static class Data {
 		private String url;
+		
+		/**
+		 * Data default constructor.
+		 */
+		public Data() {
+			
+		}
 
 		/**
          * Gets the URL of the image
