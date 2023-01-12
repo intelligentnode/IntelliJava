@@ -6,7 +6,7 @@
 
   <groupId>io.github.barqawiz</groupId>
   <artifactId>intellijava.core</artifactId>
-  <version>0.4.0</version>
+  <version>0.5.5</version>
 
   <name>Intellijava</name>
   <description>IntelliJava allows java developers to easily integrate with the latest language models, image generation, and deep learning frameworks.</description>
@@ -119,19 +119,19 @@
     <plugins>
     	<!-- GPG Signed Components -->
     	<plugin>
-	      <groupId>org.apache.maven.plugins</groupId>
-	      <artifactId>maven-gpg-plugin</artifactId>
-	      <version>1.5</version>
-	      <executions>
-	        <execution>
-	          <id>sign-artifacts</id>
-	          <phase>verify</phase>
-	          <goals>
-	            <goal>sign</goal>
-	          </goals>
-	        </execution>
-	      </executions>
-	    </plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-gpg-plugin</artifactId>
+	    <version>1.6</version>
+	    <executions>
+	      <execution>
+	        <id>sign-artifacts</id>
+	        <phase>verify</phase>
+	        <goals>
+	          <goal>sign</goal>
+	        </goals>
+	      </execution>
+	    </executions>
+	  </plugin>
 	    <!-- maven publish plugin -->
 	    <plugin>
 		  <groupId>org.sonatype.plugins</groupId>
@@ -152,7 +152,7 @@
 	        <executions>
 	          <execution>
 	            <id>attach-sources</id>
-	            <phase>verify</phase>
+	            
 	            <goals>
 	              <goal>jar-no-fork</goal>
 	            </goals>

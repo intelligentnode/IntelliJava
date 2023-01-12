@@ -1,5 +1,5 @@
 # IntelliJava-OpenaiAPI
-*IntelliJava V0.4.0*
+*IntelliJava V0.5.5*
 
 IntelliJava allows java developers to easily integrate with the latest language models and deep learning frameworks using few lines of java code.
 The first version supports only Openai APIs. It provides a simple and intuitive API with convenient methods for sending text input to models like (GPT-3 and DALL·E) and receiving generated text or images in return.
@@ -11,14 +11,30 @@ The first version supports only Openai APIs. It provides a simple and intuitive 
 3. Call the ``RemoteLanguageModel`` for the language model and ``RemoateImageModel`` for image generation.
 
 ## Integration
+The package released to [Maven Central Repository](https://central.sonatype.dev/artifact/io.github.barqawiz/intellijava.core/0.5.5).
 
-For jar integration download:
-[intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.3/com.intellijava.core-0.3.jar).
+Maven:
+```xml
+<dependency>
+    <groupId>io.github.barqawiz</groupId>
+    <artifactId>intellijava.core</artifactId>
+    <version>0.5.5</version>
+</dependency>
+```
 
-For maven:
+Gradle:
+
 ```
-to be updated.
+implementation group: 'io.github.barqawiz', name: 'intellijava.core', version: '0.5.5'
 ```
+
+Gradle(Kotlin):
+```
+implementation("io.github.barqawiz:intellijava.core:0.5.5")
+```
+
+Jar download:
+[intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.5.5/intellijava.core-0.5.5.jar).
 
 For ready integration: try the sample_code.
 
