@@ -95,6 +95,7 @@ Call for contributors:
 - [x] Add support to OpenAI Completion API.
 - [x] Add support to OpenAI DALL·E 2.
 - [ ] Add support to other OpenAI functions.
+- [ ] Add support to cohere generate API.
 - [ ] Add support to Google language models.
 - [ ] Add support to Amazon language models.
 - [ ] Add support to Midjourney image generation.
