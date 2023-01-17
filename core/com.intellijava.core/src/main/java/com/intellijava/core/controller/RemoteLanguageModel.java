@@ -51,7 +51,7 @@ public class RemoteLanguageModel {
      */
 	public RemoteLanguageModel(String keyValue, String keyType) {
 		
-		if (keyType == "" || keyType == "openai") {
+		if (keyType.isEmpty() || keyType.equals("openai")) {
 			this.keyType = "openai";
 			openaiWrapper = new OpenAIWrapper(keyValue);
 		} else {
@@ -72,7 +72,7 @@ public class RemoteLanguageModel {
 	 */
 	public String generateText(LanguageModelInput langInput) throws IOException { 
 		
-		if (this.keyType == "openai") {
+		if (this.keyType.equals("openai")) {
 			return this.generateOpenaiText(langInput.getModel(), langInput.getPrompt(), 
 					langInput.getTemperature(), langInput.getMaxTokens());
 		} else {

@@ -53,7 +53,7 @@ public class RemoateImageModel {
 	 */
 	public RemoateImageModel(String keyValue, String keyType) {
 		
-		if (keyType == "" || keyType == "openai") {
+		if (keyType.isEmpty() || keyType.equals("openai")) {
 			this.keyType = "openai";
 			openaiWrapper = new OpenAIWrapper(keyValue);
 		} else {
@@ -71,7 +71,7 @@ public class RemoateImageModel {
 	 */
 	public List<String> generateImages(ImageModelInput imageInput) throws IOException { 
 		
-		if (this.keyType == "openai") {
+		if (this.keyType.equals("openai")) {
 			return this.generateOpenaiImage(imageInput.getPrompt(), 
 					imageInput.getNumberOfImages(), imageInput.getImageSize());
 		} else {
