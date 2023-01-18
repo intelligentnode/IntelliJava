@@ -54,9 +54,9 @@ public class RemoteLanguageModel {
 	 *
 	 * Creates an instance of the class and sets up the key and the API type.
 	 *
-	 * @param keyValue the API key.
-	 * @param keyType  either openai (default) or cohere or send empty string for
-	 *                 default value.
+	 * @param keyValue      the API key.
+	 * @param keyTypeString either openai (default) or cohere or send empty string
+	 *                      for default value.
 	 *
 	 * @throws IllegalArgumentException if the keyType passed is not "openai".
 	 * 
@@ -78,22 +78,6 @@ public class RemoteLanguageModel {
 	}
 
 	/**
-	 * Get the supported models names as array of string
-	 * 
-	 * @return supportedModels
-	 */
-	public List<String> getSupportedModels() {
-		SupportedLangModels[] values = SupportedLangModels.values();
-		List<String> enumValues = new ArrayList<>();
-		
-		for (int i = 0; i < values.length; i++) {
-			enumValues.add(values[i].name());
-		}
-		
-		return enumValues;
-	}
-	
-	/**
 	 * Constructor for the RemoteLanguageModel class.
 	 *
 	 * Creates an instance of the class and sets up the API key and the enum key
@@ -109,6 +93,28 @@ public class RemoteLanguageModel {
 		this.initiate(keyValue, keyType);
 	}
 
+	/**
+	 * Get the supported models names as array of string
+	 * 
+	 * @return supportedModels
+	 */
+	public List<String> getSupportedModels() {
+		SupportedLangModels[] values = SupportedLangModels.values();
+		List<String> enumValues = new ArrayList<>();
+
+		for (int i = 0; i < values.length; i++) {
+			enumValues.add(values[i].name());
+		}
+
+		return enumValues;
+	}
+	
+	/**
+	 * Common function to initiate the class from any constructor.
+	 * 
+	 * @param keyValue the API key.
+	 * @param keyType enum version from the key type (SupportedModels).
+	 */
 	private void initiate(String keyValue, SupportedLangModels keyType) {
 		// set the model type
 		this.keyType = keyType;

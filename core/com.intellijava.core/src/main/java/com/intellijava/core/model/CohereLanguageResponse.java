@@ -15,6 +15,13 @@ public class CohereLanguageResponse extends BaseRemoteModel{
     private List<Generation> generations;
     private String prompt;
     
+    /**
+     * 
+     * Generation is wrapper for the response
+     * 
+     * @author github.com/Barqawiz
+     *
+     */
     public static class Generation {
         private String id;
         private String text;
