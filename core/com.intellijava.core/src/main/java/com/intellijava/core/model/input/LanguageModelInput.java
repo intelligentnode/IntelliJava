@@ -4,6 +4,10 @@ package com.intellijava.core.model.input;
  * 
  * LanguageModelInput handle the input parameters for the majority of the remote language models.
  * 
+ * Language models documentations:
+ * - Openai : https://beta.openai.com/docs/api-reference/completions.
+ * - Cohere : https://docs.cohere.ai/reference/generate
+ * 
  * @author github.com/Barqawiz
  *
  */
@@ -45,7 +49,11 @@ public class LanguageModelInput {
 
         /**
          *  Setter for model.
-         * @param model the model name. The largest OpenAI model is text-davinci-002.
+         * @param model the model name. 
+         * 
+         * The largest OpenAI model is text-davinci-003.
+         * The largest cohere model is xlarge.
+         * 
          * @return instance of Builder
          */
         public Builder setModel(String model) {

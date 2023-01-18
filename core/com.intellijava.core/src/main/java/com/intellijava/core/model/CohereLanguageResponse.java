@@ -9,10 +9,9 @@ import java.util.List;
  * @author github.com/Barqawiz
  *
  */
-public class CohereTextResponse {
+public class CohereLanguageResponse extends BaseRemoteModel{
 
 	/** A unique identifier for the response.*/
-	private String id;
     private List<Generation> generations;
     private String prompt;
     
@@ -55,24 +54,6 @@ public class CohereTextResponse {
         public void setText(String text) {
             this.text = text;
         }
-    }
-
-    /**
-     * Get the unique identifier for the response.
-     *
-     * @return the unique identifier for the response.
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Sets the unique identifier for the response.
-     *
-     * @param id the unique identifier for the response.
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
