@@ -28,7 +28,7 @@ import com.intellijava.core.model.input.LanguageModelInput;
  * 
  *
  */
-public class App {
+public class OpenaiApp {
 
 	public static void main(String[] args) {
 

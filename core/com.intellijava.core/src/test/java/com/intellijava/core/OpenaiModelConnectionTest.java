@@ -36,7 +36,7 @@ import com.intellijava.core.wrappers.OpenAIWrapper;
 /**
  * Unit test for Remote Language Model
  */
-public class RemoteModelConnectionTest {
+public class OpenaiModelConnectionTest {
 	
 	/**
 	 * openaiKey - change the openaiKey 

@@ -1,40 +1,43 @@
 # IntelliJava-OpenaiAPI
-*IntelliJava V0.5.5*
+*IntelliJava V0.6.0*
 
-IntelliJava allows java developers to easily integrate with the latest language models and deep learning frameworks using few lines of java code.
-The first version supports only Openai APIs. It provides a simple and intuitive API with convenient methods for sending text input to models like (GPT-3 and DALL·E) and receiving generated text or images in return.
+IntelliJava is the ultimate tool for Java developers looking to integrate with the latest language models and deep learning frameworks. The library provides a simple and intuitive API with convenient methods for sending text input to models like GPT-3 and DALL·E, and receiving generated text or images in return. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
+
+The supported models in this version:
+- OpenAI: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred when you want quality results without tuning.
+- Cohere.ai: generate text; Cohere allows you to generate your language model to suit your specific needs.
 
 
 # How to use
 1. Import the core jar file to your project or add the maven package (check Integration section).
 2. Add gson dependency using maven or the jar file (check dependencies section).
-3. Call the ``RemoteLanguageModel`` for the language model and ``RemoateImageModel`` for image generation.
+3. Call the ``RemoteLanguageModel`` for the language models and ``RemoateImageModel`` for image generation.
 
 ## Integration
-The package released to [Maven Central Repository](https://central.sonatype.dev/artifact/io.github.barqawiz/intellijava.core/0.5.5).
+The package released to [Maven Central Repository](https://central.sonatype.dev/artifact/io.github.barqawiz/intellijava.core/0.6.0).
 
 Maven:
 ```xml
 <dependency>
     <groupId>io.github.barqawiz</groupId>
     <artifactId>intellijava.core</artifactId>
-    <version>0.5.5</version>
+    <version>0.6.0</version>
 </dependency>
 ```
 
 Gradle:
 
 ```
-implementation group: 'io.github.barqawiz', name: 'intellijava.core', version: '0.5.5'
+implementation group: 'io.github.barqawiz', name: 'intellijava.core', version: '0.6.0'
 ```
 
 Gradle(Kotlin):
 ```
-implementation("io.github.barqawiz:intellijava.core:0.5.5")
+implementation("io.github.barqawiz:intellijava.core:0.6.0")
 ```
 
 Jar download:
-[intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.5.5/intellijava.core-0.5.5.jar).
+[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.6.0/intellijava.core-0.6.0.jar).
 
 For ready integration: try the sample_code.
 
@@ -95,7 +98,7 @@ Call for contributors:
 - [x] Add support to OpenAI Completion API.
 - [x] Add support to OpenAI DALL·E 2.
 - [ ] Add support to other OpenAI functions.
-- [ ] Add support to cohere generate API.
+- [x] Add support to cohere generate API.
 - [ ] Add support to Google language models.
 - [ ] Add support to Amazon language models.
 - [ ] Add support to Midjourney image generation.
