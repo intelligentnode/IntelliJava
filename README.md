@@ -1,7 +1,7 @@
 # IntelliJava-OpenaiAPI
 *IntelliJava V0.6.0*
 
-IntelliJava is the ultimate tool for Java developers looking to integrate with the latest language models and deep learning frameworks. The library provides a simple and intuitive API with convenient methods for sending text input to models like GPT-3 and DALL·E, and receiving generated text or images in return. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
+Intelligent java (IntelliJava) is the ultimate tool for Java developers looking to integrate with the latest language models and deep learning frameworks. The library provides a simple and intuitive API with convenient methods for sending text input to models like GPT-3 and DALL·E, and receiving generated text or images in return. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
 
 The supported models:
 - **OpenAI**: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred when you want quality results without tuning.
