@@ -3,14 +3,14 @@
 
 IntelliJava is the ultimate tool for Java developers looking to integrate with the latest language models and deep learning frameworks. The library provides a simple and intuitive API with convenient methods for sending text input to models like GPT-3 and DALL·E, and receiving generated text or images in return. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
 
-The supported models in this version:
-- OpenAI: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred when you want quality results without tuning.
-- Cohere.ai: generate text; Cohere allows you to generate your language model to suit your specific needs.
-
+The supported models:
+- **OpenAI**: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred when you want quality results without tuning.
+- **Cohere.ai**: Generate text; Cohere allows you to generate your language model to suit your specific needs.
 
 # How to use
-1. Import the core jar file to your project or add the maven package (check Integration section).
-2. Add gson dependency using maven or the jar file (check dependencies section).
+
+1. Import the core jar file OR maven dependency (check the Integration section).
+2. Add Gson dependency if using the jar file; otherwise, it's handled by maven or Gradle.
 3. Call the ``RemoteLanguageModel`` for the language models and ``RemoateImageModel`` for image generation.
 
 ## Integration
