@@ -62,8 +62,8 @@ public class OpenaiApp {
 
 		// prepare the input parameters - change the prompt to any text like "write a
 		// funny short story"
-		LanguageModelInput langInput = new LanguageModelInput.Builder("return a java code that says hello world")
-				.setModel("text-davinci-002").setTemperature(0.7f).setMaxTokens(50).build();
+		LanguageModelInput langInput = new LanguageModelInput.Builder("Summarize the plot of the 'Inception' movie in two sentences")
+				.setModel("text-davinci-003").setTemperature(0.7f).setMaxTokens(80).build();
 
 		String resValue = langModel.generateText(langInput);
 

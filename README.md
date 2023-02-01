@@ -44,20 +44,20 @@ For ready integration: try the sample_code.
 ## Code Example
 **Language model code** (2 steps):
 ```java
-// 1- initiate the remote language model 
+// 1- initiate the remote language model
 String apiKey = "<add-openai-api-key>";
 RemoteLanguageModel langModel = new RemoteLanguageModel(apiKey, "openai");
 
 // 2- call generateText with any command !
-LanguageModelInput langInput = new LanguageModelInput.Builder("return a java code that says hello world")
-                .setModel("text-davinci-002").setTemperature(0.7f).setMaxTokens(50).build();
+LanguageModelInput langInput = new LanguageModelInput.Builder("Summarize the plot of the 'Inception' movie in two sentences")
+                .setModel("text-davinci-003").setTemperature(0.7f).setMaxTokens(50).build();
 String resValue = langModel.generateText(langInput);
 ```
-Output:
-``` System.out.println("Hello, World!");```<br><br>
+Output:```Inception follows Dom Cobb, a professional thief, who is offered a chance at redemption in exchange for planting an idea in a target's mind. He must navigate a dangerous landscape of dream-sharing technology and battle his inner demons in order to complete the mission and find his way back to reality.```
+<br><br>
 **Image generation code** (2 steps):
 ```java
-// 1- initiate the remote image model 
+// 1- initiate the remote image model
 RemoateImageModel imageModel = new RemoateImageModel(apiKey, "openai");
 
 // 2- call generateImages with any command !
