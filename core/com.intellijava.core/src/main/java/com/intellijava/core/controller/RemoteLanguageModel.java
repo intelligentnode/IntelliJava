@@ -134,8 +134,10 @@ public class RemoteLanguageModel {
 	 * 
 	 * Call a remote large model to generate any text based on the received prompt.
 	 * 
-	 * @param langInput flexible builder for language model parameters.
+	 * To support multiple response call the variation function generateMultiText.
 	 * 
+	 * @param langInput flexible builder for language model parameters.
+	 * 					
 	 * @return string for the model response.
 	 * @throws IOException              if there is an error when connecting to the
 	 *                                  OpenAI API.
@@ -153,6 +155,35 @@ public class RemoteLanguageModel {
 			return this.generateCohereText(langInput.getModel(), 
 					langInput.getPrompt(), langInput.getTemperature(),
 					langInput.getMaxTokens(), langInput.getNumberOfOutputs()).get(0);
+		} else {
+			throw new IllegalArgumentException("This version support openai keyType only");
+		}
+
+	}
+	
+	/**
+	 * 
+	 * Call a remote large model to generate any text based on the received prompt.
+	 * 
+	 * @param langInput flexible builder for language model parameters.
+	 * 
+	 * @return List<String> for the model responses.
+	 * @throws IOException              if there is an error when connecting to the
+	 *                                  OpenAI API.
+	 * @throws IllegalArgumentException if the keyType passed in the constructor is
+	 *                                  not "openai".
+	 * 
+	 */
+	public List<String> generateMultiText(LanguageModelInput langInput) throws IOException {
+
+		if (this.keyType.equals(SupportedLangModels.openai)) {
+			return this.generateOpenaiText(langInput.getModel(), 
+					langInput.getPrompt(), langInput.getTemperature(),
+					langInput.getMaxTokens(), langInput.getNumberOfOutputs());
+		} else if (this.keyType.equals(SupportedLangModels.cohere)) {
+			return this.generateCohereText(langInput.getModel(), 
+					langInput.getPrompt(), langInput.getTemperature(),
+					langInput.getMaxTokens(), langInput.getNumberOfOutputs());
 		} else {
 			throw new IllegalArgumentException("This version support openai keyType only");
 		}
