@@ -101,6 +101,7 @@ Call for contributors:
 - [x] Add support to cohere generate API.
 - [ ] Add support to Google language models.
 - [ ] Add support to Amazon language models.
+- [ ] Add support to Azure models.
 - [ ] Add support to Midjourney image generation.
 
 
