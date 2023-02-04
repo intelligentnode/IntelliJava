@@ -6,7 +6,7 @@
 
   <groupId>io.github.barqawiz</groupId>
   <artifactId>intellijava.core</artifactId>
-  <version>0.6.0</version>
+  <version>0.6.1</version>
 
   <name>Intellijava</name>
   <description>IntelliJava allows java developers to easily integrate with the latest language models, image generation, and deep learning frameworks.</description>

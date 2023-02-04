@@ -17,6 +17,7 @@ public class LanguageModelInput {
 	private String prompt; 
 	private float temperature; 
 	private int maxTokens;
+	private int numberOfOutputs = 1;
 	
     /**
      * Private Constructor for the Builder.
@@ -27,6 +28,7 @@ public class LanguageModelInput {
         this.prompt = builder.prompt;
         this.temperature = builder.temperature;
         this.maxTokens = builder.maxTokens;
+        this.maxTokens = builder.numberOfOutputs;
     }
     /**
      * 
@@ -38,6 +40,7 @@ public class LanguageModelInput {
         private String prompt;
         private float temperature;
         private int maxTokens;
+        private int numberOfOutputs = 1;
 
         /**
          * Language input Constructor.
@@ -90,6 +93,22 @@ public class LanguageModelInput {
             this.maxTokens = maxTokens;
             return this;
         }
+        
+        /**
+        *  Setter for numberOfOutputs
+        * @param numberOfOutputs number of model outputs, default value is 1. 
+        * 
+        * Cohere maximum value is five.
+        * 
+        * @return instance of Builder
+        */
+        public Builder setNumberOfOutputs(int numberOfOutputs) {
+        	if (this.numberOfOutputs < 0)
+        		this.numberOfOutputs = 0;
+        	
+    		this.numberOfOutputs = numberOfOutputs;
+    		return this;
+    	}
 
         /**
          * Build the final LanguageModelInput object.
@@ -130,5 +149,15 @@ public class LanguageModelInput {
     public int getMaxTokens() {
         return maxTokens;
     }
+
+    /**
+     * Getter for number of model outputs.
+     * @return numberOfOutputs
+     */
+	public int getNumberOfOutputs() {
+		return numberOfOutputs;
+	}
+    
+    
 }
 

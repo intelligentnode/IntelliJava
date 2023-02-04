@@ -21,8 +21,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.intellijava.core.model.CohereLanguageResponse;
+import com.intellijava.core.model.CohereLanguageResponse.Generation;
 import com.intellijava.core.model.OpenaiLanguageResponse;
+import com.intellijava.core.model.OpenaiLanguageResponse.Choice;
 import com.intellijava.core.model.SupportedLangModels;
+import com.intellijava.core.model.OpenaiImageResponse.Data;
 import com.intellijava.core.model.input.LanguageModelInput;
 import com.intellijava.core.wrappers.CohereAIWrapper;
 import com.intellijava.core.wrappers.OpenAIWrapper;
@@ -143,11 +146,13 @@ public class RemoteLanguageModel {
 	public String generateText(LanguageModelInput langInput) throws IOException {
 
 		if (this.keyType.equals(SupportedLangModels.openai)) {
-			return this.generateOpenaiText(langInput.getModel(), langInput.getPrompt(), langInput.getTemperature(),
-					langInput.getMaxTokens());
+			return this.generateOpenaiText(langInput.getModel(), 
+					langInput.getPrompt(), langInput.getTemperature(),
+					langInput.getMaxTokens(), langInput.getNumberOfOutputs()).get(0);
 		} else if (this.keyType.equals(SupportedLangModels.cohere)) {
-			return this.generateCohereText(langInput.getModel(), langInput.getPrompt(), langInput.getTemperature(),
-					langInput.getMaxTokens());
+			return this.generateCohereText(langInput.getModel(), 
+					langInput.getPrompt(), langInput.getTemperature(),
+					langInput.getMaxTokens(), langInput.getNumberOfOutputs()).get(0);
 		} else {
 			throw new IllegalArgumentException("This version support openai keyType only");
 		}
@@ -163,11 +168,13 @@ public class RemoteLanguageModel {
 	 * @param prompt      text of the required action or the question.
 	 * @param temperature higher values means more risks and creativity.
 	 * @param maxTokens   maximum size of the model input and output.
+	 * @param numberOfOutputs   number of model outputs.
 	 * @return string model response.
 	 * @throws IOException if there is an error when connecting to the OpenAI API.
 	 * 
 	 */
-	private String generateOpenaiText(String model, String prompt, float temperature, int maxTokens)
+	private List<String> generateOpenaiText(String model, String prompt, float temperature, 
+			int maxTokens, int numberOfOutputs)
 			throws IOException {
 
 		if (model.equals(""))
@@ -178,10 +185,16 @@ public class RemoteLanguageModel {
 		params.put("prompt", prompt);
 		params.put("temperature", temperature);
 		params.put("max_tokens", maxTokens);
+		params.put("n", numberOfOutputs);
 
 		OpenaiLanguageResponse resModel = (OpenaiLanguageResponse) openaiWrapper.generateText(params);
 
-		return resModel.getChoices().get(0).getText();
+		List<String> outputs = new ArrayList<>();
+		for (Choice item : resModel.getChoices()) {
+			outputs.add(item.getText());
+		}
+		
+		return outputs;
 
 	}
 
@@ -192,11 +205,13 @@ public class RemoteLanguageModel {
 	 * @param prompt      text of the required action or the question.
 	 * @param temperature higher values means more risks and creativity.
 	 * @param maxTokens   maximum size of the model input and output.
+	 * @param numberOfOutputs   number of model outputs.
 	 * @return string model response.
 	 * @throws IOException if there is an error when connecting to the API.
 	 * 
 	 */
-	private String generateCohereText(String model, String prompt, float temperature, int maxTokens)
+	private List<String> generateCohereText(String model, String prompt, float temperature, 
+			int maxTokens, int numberOfOutputs)
 			throws IOException {
 
 		if (model.equals(""))
@@ -207,10 +222,16 @@ public class RemoteLanguageModel {
 		params.put("prompt", prompt);
 		params.put("temperature", temperature);
 		params.put("max_tokens", maxTokens);
+		params.put("num_generations", numberOfOutputs);
 
 		CohereLanguageResponse resModel = (CohereLanguageResponse) cohereWrapper.generateText(params);
-
-		return resModel.getGenerations().get(0).getText();
+		
+		List<String> outputs = new ArrayList<>();
+		for (Generation item: resModel.getGenerations()) {
+			outputs.add(item.getText());
+		}
+		
+		return outputs;
 
 	}
 }
