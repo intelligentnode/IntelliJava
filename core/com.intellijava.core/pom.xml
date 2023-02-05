@@ -4,13 +4,36 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.intellijava</groupId>
-  <artifactId>com.intellijava.core</artifactId>
-  <version>0.3</version>
+  <groupId>io.github.barqawiz</groupId>
+  <artifactId>intellijava.core</artifactId>
+  <version>0.6.0</version>
 
-  <name>com.intellijava.core</name>
+  <name>Intellijava</name>
+  <description>IntelliJava allows java developers to easily integrate with the latest language models, image generation, and deep learning frameworks.</description>
   <url>https://github.com/Barqawiz/IntelliJava</url>
 
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  
+  <developers>
+    <developer>
+      <name>Ahmad Albarqawi</name>
+      <email>iamspacecome@gmail.com</email>
+      <organization>AhmadAI labs</organization>
+      <organizationUrl>http://www.ahmadai.com</organizationUrl>
+    </developer>
+  </developers>
+  
+  <scm>
+    <connection>scm:git:git://github.com/Barqawiz/IntelliJava.git</connection>
+    <developerConnection>scm:git:ssh://github.com:Barqawiz/IntelliJava.git</developerConnection>
+    <url>https://github.com/Barqawiz/IntelliJava</url>
+  </scm>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
@@ -18,10 +41,18 @@
   </properties>
 
   <distributionManagement>
-  <repository>
+  <!--<repository>
     <id>github</id>
     <name>GitHub Apache Maven Packages</name>
     <url>https://maven.pkg.github.com/Barqawiz/IntelliJava</url>
+  </repository>-->
+  <snapshotRepository>
+    <id>ossrh</id>
+    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+  </snapshotRepository>
+  <repository>
+    <id>ossrh</id>
+    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
   </repository>
 </distributionManagement>
 
@@ -29,7 +60,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -84,5 +115,64 @@
         
       </plugins>
     </pluginManagement>
+    
+    <plugins>
+    	<!-- GPG Signed Components -->
+    	<plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-gpg-plugin</artifactId>
+	    <version>1.6</version>
+	    <executions>
+	      <execution>
+	        <id>sign-artifacts</id>
+	        <phase>verify</phase>
+	        <goals>
+	          <goal>sign</goal>
+	        </goals>
+	      </execution>
+	    </executions>
+	  </plugin>
+	    <!-- maven publish plugin -->
+	    <plugin>
+		  <groupId>org.sonatype.plugins</groupId>
+		  <artifactId>nexus-staging-maven-plugin</artifactId>
+		  <version>1.6.12</version>
+		  <extensions>true</extensions>
+		  <configuration>
+		     <serverId>ossrh</serverId>
+		     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+		     <autoReleaseAfterClose>true</autoReleaseAfterClose>
+		  </configuration>
+		</plugin>
+	    <!-- sources -->
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-source-plugin</artifactId>
+	        <version>3.2.1</version>
+	        <executions>
+	          <execution>
+	            <id>attach-sources</id>
+	            
+	            <goals>
+	              <goal>jar-no-fork</goal>
+	            </goals>
+	          </execution>
+	        </executions>
+	      </plugin>
+	       <!-- java doc -->
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-javadoc-plugin</artifactId>
+	        <version>3.4.1</version>
+	        <executions>
+	        <execution>
+	          <id>attach-javadocs</id>
+	          <goals>
+	            <goal>jar</goal>
+	          </goals>
+	        </execution>
+	      </executions>
+      </plugin>
+  	</plugins>
   </build>
 </project>

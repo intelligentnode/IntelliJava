@@ -1,49 +1,72 @@
-# IntelliJava-OpenaiAPI
-*IntelliJava V0.3*
+# Intelligent Java
+*IntelliJava V0.6.0*
 
-IntelliJava allows java developers to easily integrate with the latest language models and deep learning frameworks using few lines of java code.
-The first version supports only Openai APIs. It provides a simple and intuitive API with convenient methods for sending text input to models like (GPT-3 and DALL·E) and receiving generated text or images in return.
+Intelligent java (IntelliJava) is the ultimate tool for Java developers looking to integrate with the latest language models and deep learning frameworks. The library provides a simple and intuitive API with convenient methods for sending text input to models like GPT-3 and DALL·E, and receiving generated text or images in return. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
 
+The supported models:
+- **OpenAI**: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred when you want quality results without tuning.
+- **Cohere.ai**: Generate text; Cohere allows you to generate your language model to suit your specific needs.
 
 # How to use
-1. Import the core jar file to your project or add the maven package (check Integration section).
-2. Add gson dependency using maven or the jar file (check dependencies section).
-3. Call the ``RemoteLanguageModel`` for the language model and ``RemoateImageModel`` for image generation.
+
+1. Import the core jar file OR maven dependency (check the Integration section).
+2. Add Gson dependency if using the jar file; otherwise, it's handled by maven or Gradle.
+3. Call the ``RemoteLanguageModel`` for the language models and ``RemoateImageModel`` for image generation.
 
 ## Integration
+The package released to [Maven Central Repository](https://central.sonatype.dev/artifact/io.github.barqawiz/intellijava.core/0.6.0).
 
-For jar integration download:
-[intellijava.jar](https://insta-answer-public.s3.amazonaws.com/opensource/IntelliJava/version0.3/com.intellijava.core-0.3.jar).
+Maven:
+```xml
+<dependency>
+    <groupId>io.github.barqawiz</groupId>
+    <artifactId>intellijava.core</artifactId>
+    <version>0.6.0</version>
+</dependency>
+```
 
-For maven:
-[Add github dependency package](https://github.com/Barqawiz/IntelliJava/packages/1767035).
+Gradle:
+
+```
+implementation group: 'io.github.barqawiz', name: 'intellijava.core', version: '0.6.0'
+```
+
+Gradle(Kotlin):
+```
+implementation("io.github.barqawiz:intellijava.core:0.6.0")
+```
+
+Jar download:
+[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.6.0/intellijava.core-0.6.0.jar).
 
 For ready integration: try the sample_code.
 
 ## Code Example
 **Language model code** (2 steps):
-```
-// 1- initiate the remote language model 
+```java
+// 1- initiate the remote language model
 String apiKey = "<add-openai-api-key>";
 RemoteLanguageModel langModel = new RemoteLanguageModel(apiKey, "openai");
 
 // 2- call generateText with any command !
-String command = "return a java code that says hello wrold";
-String resValue = langModel.generateText("text-davinci-002", command, 0.5F, 100);
+LanguageModelInput langInput = new LanguageModelInput.Builder("Summarize the plot of the 'Inception' movie in two sentences")
+                .setModel("text-davinci-003").setTemperature(0.7f).setMaxTokens(50).build();
+String resValue = langModel.generateText(langInput);
 ```
-Output:
-``` System.out.println("Hello, World!");```<br><br>
+Output:```Inception follows Dom Cobb, a professional thief, who is offered a chance at redemption in exchange for planting an idea in a target's mind. He must navigate a dangerous landscape of dream-sharing technology and battle his inner demons in order to complete the mission and find his way back to reality.```
+<br><br>
 **Image generation code** (2 steps):
-```
-// 1- initiate the remote image model 
+```java
+// 1- initiate the remote image model
 RemoateImageModel imageModel = new RemoateImageModel(apiKey, "openai");
 
 // 2- call generateImages with any command !
-String prompt = "teddy writing a blog in times square";
-List<String> images = imageModel.generateImages(prompt, 2/*number of images*/, "1024x1024");
+ImageModelInput imageInput = new ImageModelInput.Builder("teddy writing a blog in times square")
+                .setNumberOfImages(2).setImageSize("1024x1024").build();
+List<String> images = imageModel.generateImages(imageInput);
 ```
 Output:<br>
-<img src="images/response_image.png" height="250px">
+<img src="images/response_image.png" height="220px">
 
 For full example check the code inside sample_code project.
 
@@ -75,8 +98,10 @@ Call for contributors:
 - [x] Add support to OpenAI Completion API.
 - [x] Add support to OpenAI DALL·E 2.
 - [ ] Add support to other OpenAI functions.
+- [x] Add support to cohere generate API.
 - [ ] Add support to Google language models.
 - [ ] Add support to Amazon language models.
+- [ ] Add support to Azure models.
 - [ ] Add support to Midjourney image generation.
 
 
