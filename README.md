@@ -11,7 +11,7 @@ The supported models:
 
 1. Import the core jar file OR maven dependency (check the Integration section).
 2. Add Gson dependency if using the jar file; otherwise, it's handled by maven or Gradle.
-3. Call the ``RemoteLanguageModel`` for the language models and ``RemoateImageModel`` for image generation.
+3. Call the ``RemoteLanguageModel`` for the language models and ``RemoteImageModel`` for image generation.
 
 ## Integration
 The package released to [Maven Central Repository](https://central.sonatype.dev/artifact/io.github.barqawiz/intellijava.core/0.6.0).
@@ -58,7 +58,7 @@ Output:```Inception follows Dom Cobb, a professional thief, who is offered a cha
 **Image generation code** (2 steps):
 ```java
 // 1- initiate the remote image model
-RemoateImageModel imageModel = new RemoateImageModel(apiKey, "openai");
+RemoteImageModel imageModel = new RemoteImageModel(apiKey, "openai");
 
 // 2- call generateImages with any command !
 ImageModelInput imageInput = new ImageModelInput.Builder("teddy writing a blog in times square")

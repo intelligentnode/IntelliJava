@@ -34,7 +34,7 @@ import com.intellijava.core.wrappers.OpenAIWrapper;
  *
  * @author github.com/Barqawiz
  */
-public class RemoateImageModel {
+public class RemoteImageModel {
 	
 	private String keyType;
 	private OpenAIWrapper openaiWrapper;
@@ -51,7 +51,7 @@ public class RemoateImageModel {
 	 * @throws IllegalArgumentException if the keyType passed is not "openai".
 	 * 
 	 */
-	public RemoateImageModel(String keyValue, String keyType) {
+	public RemoteImageModel(String keyValue, String keyType) {
 		
 		if (keyType.isEmpty() || keyType.equals("openai")) {
 			this.keyType = "openai";

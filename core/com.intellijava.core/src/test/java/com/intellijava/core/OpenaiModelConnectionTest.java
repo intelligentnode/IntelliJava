@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.Test;
-import com.intellijava.core.controller.RemoateImageModel;
+import com.intellijava.core.controller.RemoteImageModel;
 import com.intellijava.core.controller.RemoteLanguageModel;
 import com.intellijava.core.model.OpenaiImageResponse;
 import com.intellijava.core.model.OpenaiImageResponse.Data;
@@ -122,7 +122,7 @@ public class OpenaiModelConnectionTest {
 		
 		try {
 
-			RemoateImageModel wrapper = new RemoateImageModel(openaiKey, "openai");
+			RemoteImageModel wrapper = new RemoteImageModel(openaiKey, "openai");
 			ImageModelInput input = new ImageModelInput.Builder(prompt) 
 					.setNumberOfImages(2).setImageSize("1024x1024").build();
 			
