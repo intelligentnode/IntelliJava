@@ -73,26 +73,6 @@ For full example check the code inside sample_code project.
 The only dependencies is **GSON**.
 *Required to add manually when using IntelliJava jar. However, if you imported this repo through Maven, it will handle the dependencies.*
 
-For Maven:
-```
-<dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.8.9</version>
-</dependency>
-```
-
-For Gradle:
-```
-dependencies {
-  implementation 'com.google.code.gson:gson:2.8.9'
-}
-```
-
-For jar download:
-[gson download repo](https://search.maven.org/artifact/com.google.code.gson/gson/2.8.9/jar)
-
-
 # Roadmap
 Call for contributors:
 - [x] Add support to OpenAI Completion API.
@@ -115,11 +95,5 @@ Copyright 2023 Github.com/Barqawiz/IntelliJava
    You may obtain a copy of the License at
 
        http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
 
 <img src="images/IntelliJava_logo.png" height="300px">
