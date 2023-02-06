@@ -96,4 +96,4 @@ Copyright 2023 Github.com/Barqawiz/IntelliJava
 
        http://www.apache.org/licenses/LICENSE-2.0
 
-<img src="images/IntelliJava_logo.png" height="300px">
+<img src="images/intelligent_java.png" height="340px">
