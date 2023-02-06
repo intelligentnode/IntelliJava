@@ -18,7 +18,7 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
-  
+
   <developers>
     <developer>
       <name>Ahmad Albarqawi</name>
@@ -27,13 +27,13 @@
       <organizationUrl>http://www.ahmadai.com</organizationUrl>
     </developer>
   </developers>
-  
+
   <scm>
     <connection>scm:git:git://github.com/Barqawiz/IntelliJava.git</connection>
     <developerConnection>scm:git:ssh://github.com:Barqawiz/IntelliJava.git</developerConnection>
     <url>https://github.com/Barqawiz/IntelliJava</url>
   </scm>
-  
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
@@ -112,10 +112,10 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        
+
       </plugins>
     </pluginManagement>
-    
+
     <plugins>
     	<!-- GPG Signed Components -->
     	<plugin>
@@ -152,7 +152,7 @@
 	        <executions>
 	          <execution>
 	            <id>attach-sources</id>
-	            
+
 	            <goals>
 	              <goal>jar-no-fork</goal>
 	            </goals>

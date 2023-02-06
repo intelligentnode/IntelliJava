@@ -17,7 +17,7 @@ package com.intelliJava.test;
 
 import java.io.IOException;
 import java.util.List;
-import com.intellijava.core.controller.RemoateImageModel;
+import com.intellijava.core.controller.RemoteImageModel;
 import com.intellijava.core.controller.RemoteLanguageModel;
 import com.intellijava.core.model.input.ImageModelInput;
 import com.intellijava.core.model.input.LanguageModelInput;
@@ -90,7 +90,7 @@ public class OpenaiApp {
 
 	private static void tryTheImageModel(String apiKey) throws IOException {
 		// initiate the remote image model wrapper
-		RemoateImageModel imageModel = new RemoateImageModel(apiKey, "openai");
+		RemoteImageModel imageModel = new RemoteImageModel(apiKey, "openai");
 
 		// prepare the input parameters
 		ImageModelInput imageInput = new ImageModelInput.Builder("teddy writing a blog in times square")
