@@ -15,6 +15,7 @@
  */
 package com.intellijava.core.wrappers;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -70,7 +71,7 @@ public class OpenAIWrapper implements LanguageModelInterface, ImageModelInterfac
         String url = API_BASE_URL + Config2.getInstance().getProperty("url.openai.completions");
 
         String json = ConnHelper.convertMaptToJson(params);
-
+        
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/json");

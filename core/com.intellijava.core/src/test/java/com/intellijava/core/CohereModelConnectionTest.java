@@ -15,6 +15,10 @@ import com.intellijava.core.model.input.LanguageModelInput;
 import com.intellijava.core.utils.Config2;
 import com.intellijava.core.wrappers.CohereAIWrapper;
 
+/**
+ * 
+ * Unit test for Remote Language Model
+ */
 public class CohereModelConnectionTest {
 
 	/**

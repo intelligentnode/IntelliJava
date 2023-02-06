@@ -15,6 +15,7 @@ import com.intellijava.core.utils.ConnHelper;
 
 /**
  * 
+ * Wrapper for the Cohere API models. 
  * 
  * @author github.com/Barqawiz
  *

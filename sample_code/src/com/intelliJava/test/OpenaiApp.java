@@ -60,15 +60,32 @@ public class OpenaiApp {
 		// initiate the remote language model wrapper with openai details
 		RemoteLanguageModel langModel = new RemoteLanguageModel(apiKey, "openai");
 
-		// prepare the input parameters - change the prompt to any text like "write a
-		// funny short story"
+		// prepare the input parameters - change the prompt to any text 
 		LanguageModelInput langInput = new LanguageModelInput.Builder("Summarize the plot of the 'Inception' movie in two sentences")
 				.setModel("text-davinci-003").setTemperature(0.7f).setMaxTokens(80).build();
+		
 
 		String resValue = langModel.generateText(langInput);
 
 		// print language model output
 		System.out.println("Language model output:\n" + resValue);
+	}
+	
+	private static void tryTheLanguageModelMultiText(String apiKey) throws IOException {
+		// initiate the remote language model wrapper with openai details
+		RemoteLanguageModel langModel = new RemoteLanguageModel(apiKey, "openai");
+
+		// prepare the input parameters - change the prompt to any text 
+		LanguageModelInput langInput = new LanguageModelInput.Builder("Summarize the plot of the 'Inception' movie in two sentences")
+				.setModel("text-davinci-003").setTemperature(0.7f)
+				.setMaxTokens(80).setNumberOfOutputs(2).build();
+		
+		
+		List<String> resValues = langModel.generateMultiText(langInput);
+		
+		// print language model output
+		for (String result : resValues)
+			System.out.print("- " + result);
 	}
 
 	private static void tryTheImageModel(String apiKey) throws IOException {
