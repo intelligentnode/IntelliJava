@@ -123,4 +123,4 @@ Copyright 2023 Github.com/Barqawiz/IntelliJava
    See the License for the specific language governing permissions and
    limitations under the License.
 
-<img src="images/IntelliJava_logo.png" height="300px">
+<img src="images/intelligent_java_header_footer.png">
