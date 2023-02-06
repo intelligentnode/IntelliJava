@@ -16,6 +16,13 @@ public class CohereLanguageResponse extends BaseRemoteModel{
     private String prompt;
     
     /**
+     * CohereLanguageResponse default constructor.
+     */
+    public CohereLanguageResponse() {
+    	
+    }
+    
+    /**
      * 
      * Generation is wrapper for the response
      * 
@@ -26,6 +33,13 @@ public class CohereLanguageResponse extends BaseRemoteModel{
         private String id;
         private String text;
 
+        /**
+        * Generation default constructor.
+        */
+        public Generation() {
+        	
+        }
+        
         /**
          * Get the unique identifier for the generation.
          *

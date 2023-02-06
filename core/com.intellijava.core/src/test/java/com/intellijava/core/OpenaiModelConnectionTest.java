@@ -27,6 +27,7 @@ import com.intellijava.core.controller.RemoateImageModel;
 import com.intellijava.core.controller.RemoteLanguageModel;
 import com.intellijava.core.model.OpenaiImageResponse;
 import com.intellijava.core.model.OpenaiImageResponse.Data;
+import com.intellijava.core.model.SupportedLangModels;
 import com.intellijava.core.model.input.ImageModelInput;
 import com.intellijava.core.model.input.LanguageModelInput;
 import com.intellijava.core.utils.Config2;
@@ -51,10 +52,10 @@ public class OpenaiModelConnectionTest {
 		
 		try {
 			
-			RemoteLanguageModel wrapper = new RemoteLanguageModel(openaiKey, "openai");
+			RemoteLanguageModel wrapper = new RemoteLanguageModel(openaiKey, SupportedLangModels.openai);
 			
 			LanguageModelInput input = new LanguageModelInput.Builder("return a java code that print hello world")
-	                .setModel("text-davinci-002").setTemperature(0.7f).setMaxTokens(50).build();
+	                .setModel("text-davinci-003").setTemperature(0.7f).setMaxTokens(50).build();
 			
 			if (openaiKey.isBlank()) return;
 			
@@ -64,6 +65,37 @@ public class OpenaiModelConnectionTest {
 			
 			assert resValue.length() > 0;
 			assert resValue.toLowerCase().contains("world");
+
+		} catch (IOException e) {
+			if (openaiKey.isBlank()) {
+				System.out.print("testOpenaiCompletion: set the API key to run the test case.");
+			} else {
+				fail("Test case failed with exception: " + e.getMessage());
+			}
+			
+		}
+	}
+	
+	
+	@Test
+	public void testOpenaiMultiTextCompletionRemoteModel() {
+		
+		try {
+			
+			RemoteLanguageModel wrapper = new RemoteLanguageModel(openaiKey, "openai");
+			
+			LanguageModelInput input = new LanguageModelInput.Builder("Summarize the plot of the 'Inception' movie in two sentences")
+	                .setModel("text-davinci-003").setTemperature(0.7f)
+	                .setMaxTokens(80).setNumberOfOutputs(2).build();
+			
+			if (openaiKey.isBlank()) return;
+			
+			List<String> resValues = wrapper.generateMultiText(input);
+			
+			for (String result : resValues)
+				System.out.print("- " + result);
+			
+			assert resValues.size() == 2;
 
 		} catch (IOException e) {
 			if (openaiKey.isBlank()) {

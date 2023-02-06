@@ -28,7 +28,7 @@ public class LanguageModelInput {
         this.prompt = builder.prompt;
         this.temperature = builder.temperature;
         this.maxTokens = builder.maxTokens;
-        this.maxTokens = builder.numberOfOutputs;
+        this.numberOfOutputs = builder.numberOfOutputs;
     }
     /**
      * 

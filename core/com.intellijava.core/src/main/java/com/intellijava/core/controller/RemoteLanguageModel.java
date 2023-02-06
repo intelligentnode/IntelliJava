@@ -167,7 +167,7 @@ public class RemoteLanguageModel {
 	 * 
 	 * @param langInput flexible builder for language model parameters.
 	 * 
-	 * @return List<String> for the model responses.
+	 * @return list of model responses.
 	 * @throws IOException              if there is an error when connecting to the
 	 *                                  OpenAI API.
 	 * @throws IllegalArgumentException if the keyType passed in the constructor is

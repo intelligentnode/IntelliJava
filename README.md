@@ -1,5 +1,5 @@
 # Intelligent Java
-*IntelliJava V0.6.0*
+*IntelliJava V0.6.1*
 
 Intelligent java (IntelliJava) is the ultimate tool for Java developers looking to integrate with the latest language models and deep learning frameworks. The library provides a simple and intuitive API with convenient methods for sending text input to models like GPT-3 and DALL·E, and receiving generated text or images in return. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
 
@@ -14,14 +14,14 @@ The supported models:
 3. Call the ``RemoteLanguageModel`` for the language models and ``RemoateImageModel`` for image generation.
 
 ## Integration
-The package released to [Maven Central Repository](https://central.sonatype.dev/artifact/io.github.barqawiz/intellijava.core/0.6.0).
+The package released to [Maven Central Repository](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.6.1).
 
 Maven:
 ```xml
 <dependency>
     <groupId>io.github.barqawiz</groupId>
     <artifactId>intellijava.core</artifactId>
-    <version>0.6.0</version>
+    <version>0.6.1</version>
 </dependency>
 ```
 
