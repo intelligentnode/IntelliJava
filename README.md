@@ -14,32 +14,32 @@ The supported models:
 3. Call the ``RemoteLanguageModel`` for the language models and ``RemoateImageModel`` for image generation.
 
 ## Integration
-The package released to [Maven Central Repository](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.6.1).
+The package released to [Maven Central Repository](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.6.2).
 
 Maven:
 ```xml
 <dependency>
     <groupId>io.github.barqawiz</groupId>
     <artifactId>intellijava.core</artifactId>
-    <version>0.6.1</version>
+    <version>0.6.2</version>
 </dependency>
 ```
 
 Gradle:
 
 ```
-implementation group: 'io.github.barqawiz', name: 'intellijava.core', version: '0.6.0'
+implementation 'io.github.barqawiz:intellijava.core:0.6.2'
 ```
 
 Gradle(Kotlin):
 ```
-implementation("io.github.barqawiz:intellijava.core:0.6.0")
+implementation("io.github.barqawiz:intellijava.core:0.6.2")
 ```
 
 Jar download:
-[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.6.0/intellijava.core-0.6.0.jar).
+[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.6.2/intellijava.core-0.6.2.jar).
 
-For ready integration: try the sample_code.
+For ready integration: try the [sample_code](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
 
 ## Code Example
 **Language model code** (2 steps):
@@ -72,6 +72,7 @@ For full example check the code inside sample_code project.
 
 ## Third-party dependencies
 The only dependencies is **GSON**.
+*Required to add manually when using IntelliJava jar. However, if you imported this repo through Maven, it will handle the dependencies.*
 
 For Maven:
 ```
