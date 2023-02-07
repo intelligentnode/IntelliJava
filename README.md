@@ -69,7 +69,7 @@ Output:<br>
 
 For full example check the code inside sample_code project.
 
-## Documentations
+## Documentation
 [Go to Java docs](https://barqawiz.github.io/IntelliJava/javadocs/)
 
 ## Third-party dependencies
