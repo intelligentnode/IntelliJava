@@ -69,6 +69,9 @@ Output:<br>
 
 For full example check the code inside sample_code project.
 
+## Documentations
+[Go to Java docs](https://barqawiz.github.io/IntelliJava/javadocs/)
+
 ## Third-party dependencies
 The only dependencies is **GSON**.
 *Required to add manually when using IntelliJava jar. However, if you imported this repo through Maven, it will handle the dependencies.*
