@@ -93,6 +93,8 @@ dependencies {
 For jar download:
 [gson download repo](https://search.maven.org/artifact/com.google.code.gson/gson/2.8.9/jar)
 
+## Documentation
+[Go to Java docs](https://barqawiz.github.io/IntelliJava/javadocs/)
 
 # Roadmap
 Call for contributors:
