@@ -1,6 +1,6 @@
 # Intelligent Java
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Barqawiz/IntelliJava)
-![GitHub](https://img.shields.io/github/license/Barqawiz/IntelliJava)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Barqawiz/IntelliJava)](https://github.com/Barqawiz/IntelliJava/releases)
+[![GitHub](https://img.shields.io/github/license/Barqawiz/IntelliJava)](https://opensource.org/licenses/Apache-2.0)
 
 
 Intelligent java (IntelliJava) is the ultimate tool for Java developers looking to integrate with the latest language models and deep learning frameworks. The library provides a simple and intuitive API with convenient methods for sending text input to models like GPT-3 and DALL·E, and receiving generated text or images in return. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
