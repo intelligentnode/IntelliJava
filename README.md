@@ -1,4 +1,5 @@
 # Intelligent Java
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=for-the-badge)](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.6.2)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Barqawiz/IntelliJava?style=for-the-badge)](https://github.com/Barqawiz/IntelliJava/releases)
 [![GitHub](https://img.shields.io/github/license/Barqawiz/IntelliJava?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
 
@@ -16,8 +17,7 @@ The supported models:
 3. Call the ``RemoteLanguageModel`` for the language models and ``RemoteImageModel`` for image generation.
 
 ## Integration
-
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=for-the-badge)](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.6.2)
+The package released to Maven Central Repository:
 
 Maven:
 ```xml
