@@ -109,6 +109,8 @@ Call for contributors:
 - [ ] Add support to Amazon language models.
 - [ ] Add support to Azure models.
 - [ ] Add support to Midjourney image generation.
+- [ ] Add support to WuDao 2.0 model.
+- [ ] Add support to an audio model.
 
 
 # License
