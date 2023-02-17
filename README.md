@@ -88,22 +88,6 @@ For full example check the code inside sample_code project.
 The only dependencies is **GSON**.
 *Required to add manually when using IntelliJava jar. However, if you imported this repo through Maven, it will handle the dependencies.*
 
-For Maven:
-```
-<dependency>
-  <groupId>com.google.code.gson</groupId>
-  <artifactId>gson</artifactId>
-  <version>2.10.1</version>
-</dependency>
-```
-
-For Gradle:
-```
-dependencies {
-  implementation 'com.google.code.gson:gson:2.10.1'
-}
-```
-
 For jar download:
 [gson download repo](https://search.maven.org/artifact/com.google.code.gson/gson/2.10.1/jar)
 
