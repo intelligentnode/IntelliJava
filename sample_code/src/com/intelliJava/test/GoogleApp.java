@@ -43,9 +43,10 @@ public class GoogleApp {
 	 */
 	private static void tryGoogleSpeechModel(String apiKey) throws IOException {
 
-		SpeechInput input = new SpeechInput("Hi, I am Intelligent Java.", Gender.FEMALE);
 		
 		RemoteSpeechModel model = new RemoteSpeechModel(apiKey, SpeechModels.google);
+		
+		SpeechInput input = new SpeechInput.Builder("Hi, I am Intelligent Java.").build();
 		
 		// get the audio bytes
 		// you can play it using libraries like javafx

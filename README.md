@@ -71,6 +71,16 @@ List<String> images = imageModel.generateImages(imageInput);
 ```
 Output:<br>
 <img src="images/response_image.png" height="220px">
+<br><br>
+**Text to speech code** (2 steps):
+```java
+// 1- initiate the remote speech model
+RemoteSpeechModel model = new RemoteSpeechModel(apiKey, SpeechModels.google);
+
+// 2- call generateImages with any command !
+SpeechInput input = new SpeechInput.Builder("Hi, I am Intelligent Java.").build();
+List<String> images = imageModel.generateImages(imageInput);
+```
 
 For full example check the code inside sample_code project.
 
