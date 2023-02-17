@@ -1,0 +1,13 @@
+{
+  "input":{
+    "text":"%s"
+  },
+  "voice":{
+    "languageCode":"%s",
+    "name":"%s",
+    "ssmlGender":"%s"
+  },
+  "audioConfig":{
+    "audioEncoding":"MP3"
+  }
+}

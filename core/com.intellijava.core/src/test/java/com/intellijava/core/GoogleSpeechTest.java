@@ -1,10 +1,19 @@
 package com.intellijava.core;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Test;
 
+import com.intellijava.core.model.AudioResponse;
 import com.intellijava.core.utils.AudioHelper;
+import com.intellijava.core.utils.Config2;
+import com.intellijava.core.wrappers.GoogleAIWrapper;
 
 public class GoogleSpeechTest {
+	
+	private final String apiKey = Config2.getInstance().getProperty("url.google.testkey");
 	
 	@Test
 	public void testAudioConversion() { 
@@ -13,5 +22,50 @@ public class GoogleSpeechTest {
 		byte[] decodedAudio = AudioHelper.decode(audioContent);
 		assert AudioHelper.saveTempAudio(decodedAudio) == true;
 		AudioHelper.deleteTempAudio();
+	}
+	
+	
+	@Test
+	public void testText2MaleSpeechWrapper() {  
+		
+		GoogleAIWrapper wrapper = new GoogleAIWrapper(apiKey);
+		try {
+			Map<String, Object> params = new HashMap<>();
+			params.put("text", "Hi, I am Intelligent Java.");
+			params.put("languageCode", "en-gb");
+			params.put("name", "en-GB-Standard-B");
+			params.put("ssmlGender", "MALE");
+			
+			AudioResponse resModel = (AudioResponse) wrapper.generateSpeech(params);
+			assert resModel.getAudioContent().length() > 0;
+			
+			byte[] decodedAudio = AudioHelper.decode(resModel.getAudioContent());
+			assert AudioHelper.saveTempAudio(decodedAudio) == true;
+			AudioHelper.deleteTempAudio();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testText2FemaleSpeechWrapper() {  
+		
+		GoogleAIWrapper wrapper = new GoogleAIWrapper(apiKey);
+		try {
+			Map<String, Object> params = new HashMap<>();
+			params.put("text", "Hi, I am Intelligent Java.");
+			params.put("languageCode", "en-gb");
+			params.put("name", "en-GB-Standard-A");
+			params.put("ssmlGender", "FEMALE");
+			
+			AudioResponse resModel = (AudioResponse) wrapper.generateSpeech(params);
+			assert resModel.getAudioContent().length() > 0;
+			
+			byte[] decodedAudio = AudioHelper.decode(resModel.getAudioContent());
+			assert AudioHelper.saveTempAudio(decodedAudio) == true;
+			AudioHelper.deleteTempAudio();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
