@@ -41,7 +41,7 @@ implementation("io.github.barqawiz:intellijava.core:0.7.0")
 ```
 
 Jar download:
-[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.6.2/intellijava.core-0.7.0.jar).
+[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.7.0/intellijava.core-0.7.0.jar).
 
 For ready integration: [try the sample_code](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
 
