@@ -30,7 +30,29 @@ public class LanguageModelInput {
         this.maxTokens = builder.maxTokens;
         this.numberOfOutputs = builder.numberOfOutputs;
     }
+    
+    
     /**
+     * LanguageModelInput default constructor.
+     * 
+     * @param model
+     * @param prompt
+     * @param temperature
+     * @param maxTokens
+     * @param numberOfOutputs
+     */
+    public LanguageModelInput(String model, String prompt, float temperature, int maxTokens, int numberOfOutputs) {
+		super();
+		this.model = model;
+		this.prompt = prompt;
+		this.temperature = temperature;
+		this.maxTokens = maxTokens;
+		this.numberOfOutputs = numberOfOutputs;
+	}
+
+
+
+	/**
      * 
      * Builder class for LanguageModelInput.
      * 
@@ -85,7 +107,7 @@ public class LanguageModelInput {
         }
         
         /**
-         *  Setter for maxTokens
+         *  Setter for maxTokens.
          * @param maxTokens maximum size of the model input and output. 
          * @return instance of Builder
          */
@@ -157,7 +179,53 @@ public class LanguageModelInput {
 	public int getNumberOfOutputs() {
 		return numberOfOutputs;
 	}
-    
+
+	/**
+	 * Setter for model.
+	 * 
+	 * @param model
+	 */
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	
+	/**
+	 * Setter for prompt.
+	 * 
+	 * @param prompt
+	 */
+	public void setPrompt(String prompt) {
+		this.prompt = prompt;
+	}
+
+	
+	/**
+	 * Setter for temperature.
+	 * 
+	 * @param temperature
+	 */
+	public void setTemperature(float temperature) {
+		this.temperature = temperature;
+	}
+
+	/**
+	 * Setter for maxTokens.
+	 * 
+	 * @param maxTokens
+	 */
+	public void setMaxTokens(int maxTokens) {
+		this.maxTokens = maxTokens;
+	}
+
+	/**
+	 * Setter for numberOfOutputs.
+	 * 
+	 * @param numberOfOutputs
+	 */
+	public void setNumberOfOutputs(int numberOfOutputs) {
+		this.numberOfOutputs = numberOfOutputs;
+	}
     
 }
 

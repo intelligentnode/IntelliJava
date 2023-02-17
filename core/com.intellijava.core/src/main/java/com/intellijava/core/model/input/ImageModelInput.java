@@ -37,7 +37,25 @@ public class ImageModelInput {
         this.numberOfImages = builder.numberOfImages;
         this.imageSize = builder.imageSize;
     }
+    
+    
     /**
+     * ImageModelInput default constructor.
+     * 
+     * @param prompt
+     * @param numberOfImages
+     * @param imageSize
+     */
+    public ImageModelInput(String prompt, int numberOfImages, String imageSize) {
+		super();
+		this.prompt = prompt;
+		this.numberOfImages = numberOfImages;
+		this.imageSize = imageSize;
+	}
+
+
+
+	/**
      * 
      * Builder class for ImageModelInput
      */
@@ -114,5 +132,35 @@ public class ImageModelInput {
     public String getImageSize() {
         return imageSize;
     }
+
+
+    /**
+     * Setter for prompt.
+     * 
+     * @param prompt
+     */
+	public void setPrompt(String prompt) {
+		this.prompt = prompt;
+	}
+
+
+	/**
+	 * Setter for numberOfImages.
+	 * @param numberOfImages
+	 */
+	public void setNumberOfImages(int numberOfImages) {
+		this.numberOfImages = numberOfImages;
+	}
+
+
+	/**
+	 * Setter for imageSize.
+	 * 
+	 * @param imageSize
+	 */
+	public void setImageSize(String imageSize) {
+		this.imageSize = imageSize;
+	}
+    
 }
 
