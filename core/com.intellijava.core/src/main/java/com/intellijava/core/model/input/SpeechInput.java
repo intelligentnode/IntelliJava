@@ -10,6 +10,11 @@ public class SpeechInput {
         this.gender = builder.gender;
     }
 
+    public SpeechInput(String text, Gender gender) {
+    	this.text = text;
+    	this.gender = gender;
+    }
+    
     public static class Builder {
 
         private String text;
@@ -42,7 +47,17 @@ public class SpeechInput {
         return gender;
     }
 
-    public enum Gender {
+    public void setText(String text) {
+		this.text = text;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+
+
+	public enum Gender {
         MALE, FEMALE;
     }
 }

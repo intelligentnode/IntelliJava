@@ -8,7 +8,11 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.intellijava.core.controller.RemoteSpeechModel;
 import com.intellijava.core.model.AudioResponse;
+import com.intellijava.core.model.SpeechModels;
+import com.intellijava.core.model.input.SpeechInput;
+import com.intellijava.core.model.input.SpeechInput.Gender;
 import com.intellijava.core.utils.AudioHelper;
 import com.intellijava.core.utils.Config2;
 import com.intellijava.core.wrappers.GoogleAIWrapper;
@@ -73,6 +77,26 @@ public class GoogleSpeechTest {
 				System.out.print("testAudioWrapper set the API key to run the test case.");
 			} else {
 				fail("testAudioWrapper failed with exception: " + e.getMessage());
+			}
+		}
+	}
+	
+	@Test
+	public void testText2FemaleRemoteSpeecModel() {  
+		SpeechInput input = new SpeechInput.Builder("Hi, I am Intelligent Java.").
+				setGender(Gender.FEMALE).build();
+		
+		RemoteSpeechModel model = new RemoteSpeechModel(apiKey, SpeechModels.google);
+		
+		try {
+			byte[] decodedAudio = model.generateEnglishText(input);
+			assert AudioHelper.saveTempAudio(decodedAudio) == true;
+			AudioHelper.deleteTempAudio();
+		} catch (IOException e) {
+			if (apiKey.isBlank()) {
+				System.out.print("testRemoteSpeech set the API key to run the test case.");
+			} else {
+				fail("testRemoteSpeech failed with exception: " + e.getMessage());
 			}
 		}
 	}
