@@ -37,7 +37,25 @@ public class ImageModelInput {
         this.numberOfImages = builder.numberOfImages;
         this.imageSize = builder.imageSize;
     }
+    
+    
     /**
+     * ImageModelInput default constructor.
+     * 
+     * @param prompt
+     * @param numberOfImages
+     * @param imageSize
+     */
+    public ImageModelInput(String prompt, int numberOfImages, String imageSize) {
+		super();
+		this.prompt = prompt;
+		this.numberOfImages = numberOfImages;
+		this.imageSize = imageSize;
+	}
+
+
+
+	/**
      * 
      * Builder class for ImageModelInput
      */
@@ -92,7 +110,7 @@ public class ImageModelInput {
         }
     }
     /**
-     * Getter for prompt.
+     * Getter for prompt the text of the required action or the question.
      * @return prompt
      */
     public String getPrompt() {
@@ -114,5 +132,35 @@ public class ImageModelInput {
     public String getImageSize() {
         return imageSize;
     }
+
+
+    /**
+     * Setter for prompt.
+     * 
+     * @param prompt
+     */
+	public void setPrompt(String prompt) {
+		this.prompt = prompt;
+	}
+
+
+	/**
+	 * Setter for numberOfImages.
+	 * @param numberOfImages the number of the generated images.
+	 */
+	public void setNumberOfImages(int numberOfImages) {
+		this.numberOfImages = numberOfImages;
+	}
+
+
+	/**
+	 * Setter for imageSize.
+	 * 
+	 * @param imageSize the size of the generated images, options are: 256x256, 512x512, or 1024x1024.
+	 */
+	public void setImageSize(String imageSize) {
+		this.imageSize = imageSize;
+	}
+    
 }
 

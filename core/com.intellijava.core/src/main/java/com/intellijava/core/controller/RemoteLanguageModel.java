@@ -156,7 +156,7 @@ public class RemoteLanguageModel {
 					langInput.getPrompt(), langInput.getTemperature(),
 					langInput.getMaxTokens(), langInput.getNumberOfOutputs()).get(0);
 		} else {
-			throw new IllegalArgumentException("This version support openai keyType only");
+			throw new IllegalArgumentException("the keyType not supported");
 		}
 
 	}
@@ -185,7 +185,7 @@ public class RemoteLanguageModel {
 					langInput.getPrompt(), langInput.getTemperature(),
 					langInput.getMaxTokens(), langInput.getNumberOfOutputs());
 		} else {
-			throw new IllegalArgumentException("This version support openai keyType only");
+			throw new IllegalArgumentException("the keyType not supported");
 		}
 
 	}
