@@ -1,5 +1,5 @@
 # Intelligent Java
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=for-the-badge)](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.6.2)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=for-the-badge)](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.7.0)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Barqawiz/IntelliJava?style=for-the-badge)](https://github.com/Barqawiz/IntelliJava/releases)
 [![GitHub](https://img.shields.io/github/license/Barqawiz/IntelliJava?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
 
@@ -9,12 +9,13 @@ Intelligent java (IntelliJava) is the ultimate tool for Java developers looking 
 The supported models:
 - **OpenAI**: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred when you want quality results without tuning.
 - **Cohere.ai**: Generate text; Cohere allows you to generate your language model to suit your specific needs.
+- **Google AI**: Generate audio from text; Access DeepMind’s speech models.
 
 # How to use
 
 1. Import the core jar file OR maven dependency (check the Integration section).
 2. Add Gson dependency if using the jar file; otherwise, it's handled by maven or Gradle.
-3. Call the ``RemoteLanguageModel`` for the language models and ``RemoteImageModel`` for image generation.
+3. Call the ``RemoteLanguageModel`` for the language models, ``RemoteImageModel`` for image generation and ``RemoteSpeechModel`` for text to speech models.
 
 ## Integration
 The package released to Maven Central Repository:
@@ -24,23 +25,23 @@ Maven:
 <dependency>
     <groupId>io.github.barqawiz</groupId>
     <artifactId>intellijava.core</artifactId>
-    <version>0.6.2</version>
+    <version>0.7.0</version>
 </dependency>
 ```
 
 Gradle:
 
 ```
-implementation 'io.github.barqawiz:intellijava.core:0.6.2'
+implementation 'io.github.barqawiz:intellijava.core:0.7.0'
 ```
 
 Gradle(Kotlin):
 ```
-implementation("io.github.barqawiz:intellijava.core:0.6.2")
+implementation("io.github.barqawiz:intellijava.core:0.7.0")
 ```
 
 Jar download:
-[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.6.2/intellijava.core-0.6.2.jar).
+[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.6.2/intellijava.core-0.7.0.jar).
 
 For ready integration: try the [sample_code](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
 
@@ -80,21 +81,21 @@ The only dependencies is **GSON**.
 For Maven:
 ```
 <dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.8.9</version>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.10.1</version>
 </dependency>
 ```
 
 For Gradle:
 ```
 dependencies {
-  implementation 'com.google.code.gson:gson:2.8.9'
+  implementation 'com.google.code.gson:gson:2.10.1'
 }
 ```
 
 For jar download:
-[gson download repo](https://search.maven.org/artifact/com.google.code.gson/gson/2.8.9/jar)
+[gson download repo](https://search.maven.org/artifact/com.google.code.gson/gson/2.10.1/jar)
 
 ## Documentation
 [Go to Java docs](https://barqawiz.github.io/IntelliJava/javadocs/)
@@ -106,12 +107,11 @@ Call for contributors:
 - [ ] Add support to other OpenAI functions.
 - [x] Add support to cohere generate API.
 - [ ] Add support to Google language models.
+- [x] Add support to Google speech models.
 - [ ] Add support to Amazon language models.
-- [ ] Add support to Azure models.
+- [ ] Add support to Azure nlp models.
 - [ ] Add support to Midjourney image generation.
 - [ ] Add support to WuDao 2.0 model.
-- [ ] Add support to an audio model.
-
 
 # License
 Apache License

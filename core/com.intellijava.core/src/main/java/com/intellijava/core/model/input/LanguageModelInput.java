@@ -203,7 +203,7 @@ public class LanguageModelInput {
 	/**
 	 * Setter for temperature.
 	 * 
-	 * @param temperature
+	 * @param temperature higher values means more risks and creativity.
 	 */
 	public void setTemperature(float temperature) {
 		this.temperature = temperature;
@@ -212,7 +212,7 @@ public class LanguageModelInput {
 	/**
 	 * Setter for maxTokens.
 	 * 
-	 * @param maxTokens
+	 * @param maxTokens maximum size of the model input and output.
 	 */
 	public void setMaxTokens(int maxTokens) {
 		this.maxTokens = maxTokens;
@@ -221,7 +221,7 @@ public class LanguageModelInput {
 	/**
 	 * Setter for numberOfOutputs.
 	 * 
-	 * @param numberOfOutputs
+	 * @param numberOfOutputs number of model outputs, default value is 1.
 	 */
 	public void setNumberOfOutputs(int numberOfOutputs) {
 		this.numberOfOutputs = numberOfOutputs;

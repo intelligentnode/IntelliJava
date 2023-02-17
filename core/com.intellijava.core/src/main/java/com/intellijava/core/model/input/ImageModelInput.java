@@ -110,7 +110,7 @@ public class ImageModelInput {
         }
     }
     /**
-     * Getter for prompt.
+     * Getter for prompt the text of the required action or the question.
      * @return prompt
      */
     public String getPrompt() {
@@ -146,7 +146,7 @@ public class ImageModelInput {
 
 	/**
 	 * Setter for numberOfImages.
-	 * @param numberOfImages
+	 * @param numberOfImages the number of the generated images.
 	 */
 	public void setNumberOfImages(int numberOfImages) {
 		this.numberOfImages = numberOfImages;
@@ -156,7 +156,7 @@ public class ImageModelInput {
 	/**
 	 * Setter for imageSize.
 	 * 
-	 * @param imageSize
+	 * @param imageSize the size of the generated images, options are: 256x256, 512x512, or 1024x1024.
 	 */
 	public void setImageSize(String imageSize) {
 		this.imageSize = imageSize;

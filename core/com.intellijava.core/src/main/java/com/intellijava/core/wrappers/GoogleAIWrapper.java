@@ -1,3 +1,18 @@
+/**
+ * Copyright 2023 Github.com/Barqawiz/IntelliJava
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.intellijava.core.wrappers;
 
 import java.io.IOException;
@@ -7,23 +22,34 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.Scanner;
-
 import com.intellijava.core.model.AudioResponse;
 import com.intellijava.core.model.BaseRemoteModel;
-import com.intellijava.core.model.OpenaiImageResponse;
 import com.intellijava.core.utils.Config2;
 import com.intellijava.core.utils.ConnHelper;
-
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-
+/**
+ * 
+ * Wrapper for Google speech services.
+ * 
+ * To use this wrapper:
+ * 1- Go to console.cloud.google.com.
+ * 2- Enable "Cloud Text-to-Speech API" from APIs Services.
+ * 3- Generate API key from APIs and services Credentials page.
+ * 
+ * @author github.com/Barqawiz
+ *
+ */
 public class GoogleAIWrapper implements SpeechModelInterface {
 
 	private final String API_SPEECH_URL;
 	private String API_KEY;
 	
+	/**
+	 * Constructs a new GoogleAIWrapper object with the API key.
+	 * 
+	 * @param apiKey the key generated from google console Credentials page
+	 */
 	public GoogleAIWrapper(String apiKey) {
 		this.API_KEY = apiKey;
 		this.API_SPEECH_URL = Config2.getInstance().getProperty("url.google.base").
@@ -31,6 +57,13 @@ public class GoogleAIWrapper implements SpeechModelInterface {
 						Config2.getInstance().getProperty("url.google.speech.prefix"));
 	}
 
+	/**
+	 * Generates speech from text using the Google speech service.
+	 * 
+	 * @param params speech model input parameters.
+	 * @return BaseRemoteModel
+	 * @throws IOException in case of communication errors.
+	 */
 	@Override
 	public BaseRemoteModel generateSpeech(Map<String, Object> params) throws IOException {
 		
@@ -58,6 +91,14 @@ public class GoogleAIWrapper implements SpeechModelInterface {
 		return resModel;
 	}
 	
+	/**
+	 * 
+	 * Prepare the synthesize service input.
+	 * 
+	 * @param params
+	 * @return String
+	 * @throws IOException
+	 */
 	private String getSynthesizeInput(Map<String, Object> params) throws IOException {
 		String modelInput = "";
 		

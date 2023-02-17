@@ -18,12 +18,34 @@ public class AudioHelper {
 
 	private static String fileTempAudio = "temp/audio.mp3";
 	
+	/**
+	 * global AudioHelper variable to print the logs.
+	 */
 	public static boolean isLog = true;
 	
+	/**
+	 * Default AudioHelper constructor.
+	 */
+	public AudioHelper() {}
+	
+	/**
+	 * 
+	 * decode base64 audio string and convert to audio byte array.
+	 * 
+	 * @param audioContent
+	 * @return audio byte array
+	 */
 	public static byte[] decode(String audioContent) {
 		return Base64.getDecoder().decode(audioContent);
 	}
 	
+	/**
+	 * 
+	 * update the global location to save temporary audio files.
+	 * 
+	 * @param fileTempAudio
+	 * @return
+	 */
 	public static boolean updateGlobalTempLocation(String fileTempAudio) {
 		boolean res = false;
 		if (fileTempAudio.endsWith(".mp3") || fileTempAudio.endsWith(".wav")) {
@@ -37,6 +59,14 @@ public class AudioHelper {
 		
 	}
 
+	/**
+	 * save temporary audio files.
+	 * 
+	 * This function created for testing purposes, it is recommended to use third party libraries for audio processing. 
+	 * 
+	 * @param decodedAudio
+	 * @return save status
+	 */
 	public static boolean saveTempAudio(byte[] decodedAudio) {
 		boolean res = true;
 		try (FileOutputStream fos = new FileOutputStream(fileTempAudio)) {
@@ -48,6 +78,10 @@ public class AudioHelper {
 		return res;
 	}
 
+	/**
+	 * clean the temporary audio files.
+	 * 
+	 */
 	public static void deleteTempAudio() {
 		
 		File file = new File(fileTempAudio);
