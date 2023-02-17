@@ -100,4 +100,23 @@ public class GoogleSpeechTest {
 			}
 		}
 	}
+	
+	@Test
+	public void testText2FemaleRemoteSpeecModel2() {  
+		SpeechInput input = new SpeechInput("Hi, I am Intelligent Java.", Gender.MALE);
+		
+		RemoteSpeechModel model = new RemoteSpeechModel(apiKey, SpeechModels.google);
+		
+		try {
+			byte[] decodedAudio = model.generateEnglishText(input);
+			assert AudioHelper.saveTempAudio(decodedAudio) == true;
+			AudioHelper.deleteTempAudio();
+		} catch (IOException e) {
+			if (apiKey.isBlank()) {
+				System.out.print("testRemoteSpeech set the API key to run the test case.");
+			} else {
+				fail("testRemoteSpeech failed with exception: " + e.getMessage());
+			}
+		}
+	}
 }
