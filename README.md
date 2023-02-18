@@ -16,9 +16,7 @@
     <img src="https://img.shields.io/github/license/Barqawiz/IntelliJava?style=flat-square" />
 </a>
 
-<a href="https://awesome.re" alt="awesome listing">
-    <img src="https://awesome.re/badge.svg" />
-</a>
+<img src="https://awesome.re/badge.svg" />
 </p>
 
 # Intelligent Java
