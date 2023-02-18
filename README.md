@@ -42,8 +42,6 @@ implementation("io.github.barqawiz:intellijava.core:0.7.0")
 Jar download:
 [intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.7.0/intellijava.core-0.7.0.jar).
 
-For ready integration: [try the sample_code](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
-
 ## Code Example
 **Language model code** (2 steps):
 ```java
@@ -81,7 +79,7 @@ SpeechInput input = new SpeechInput.Builder("Hi, I am Intelligent Java.").build(
 byte[] decodedAudio = model.generateEnglishText(input);
 ```
 
-For full example check the code inside sample_code project.
+For full example check the [sample_code project](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
 
 ## Documentation
 [Go to Java docs](https://barqawiz.github.io/IntelliJava/javadocs/)
