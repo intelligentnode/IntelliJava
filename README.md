@@ -7,12 +7,12 @@ Intelligent java (IntelliJava) is the ultimate tool for Java developers looking 
 
 The supported models:
 - **OpenAI**: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred when you want quality results without tuning.
-- **Cohere.ai**: Generate text; Cohere allows you to generate your language model to suit your specific needs.
+- **Cohere.ai**: Generate text; Cohere allows you to generate a language model to suit your specific needs.
 - **Google AI**: Generate audio from text; Access DeepMind’s speech models.
 
 # How to use
 
-1. Import the core jar file OR maven dependency (check the Integration section).
+1. Add the maven dependency or import the core jar file (check the Integration section).
 2. Add Gson dependency if using the jar file; otherwise, it's handled by maven or Gradle.
 3. Call the ``RemoteLanguageModel`` for the language models, ``RemoteImageModel`` for image generation and ``RemoteSpeechModel`` for text to speech models.
 
@@ -92,16 +92,16 @@ The only dependencies is **GSON**.
 
 # Roadmap
 Call for contributors:
-- [x] Add support to OpenAI Completion API.
-- [x] Add support to OpenAI DALL·E 2.
-- [ ] Add support to other OpenAI functions.
-- [x] Add support to cohere generate API.
-- [ ] Add support to Google language models.
-- [x] Add support to Google speech models.
-- [ ] Add support to Amazon language models.
-- [ ] Add support to Azure nlp models.
-- [ ] Add support to Midjourney image generation.
-- [ ] Add support to WuDao 2.0 model.
+- [x]  Add support to OpenAI Completion API.
+- [x]  Add support to OpenAI DALL·E 2.
+- [ ]  Add support to other OpenAI functions.
+- [x]  Add support to cohere generate API.
+- [ ]  Add support to Google language models.
+- [x]  Add support to Google speech models.
+- [ ]  Add support to Amazon language models.
+- [ ]  Add support to Azure nlp models.
+- [ ]  Add support to Midjourney image generation.
+- [ ]  Add support to WuDao 2.0 model.
 
 
 # License
