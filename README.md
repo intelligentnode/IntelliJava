@@ -1,19 +1,37 @@
+<p align="center">
+<img src="images/intelligent_java_header.png" height="140">
+</p>
+
+<p align="center">
+
+<a href="https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.7.0" alt="maven build">
+    <img src="https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=flat-square" />
+</a>
+
+<a href="https://github.com/Barqawiz/IntelliJava/releases" alt="github releases">
+    <img src="https://img.shields.io/github/v/release/Barqawiz/IntelliJava?style=flat-square" />
+</a>
+
+<a href="https://opensource.org/licenses/Apache-2.0" alt="licenses tag">
+    <img src="https://img.shields.io/github/license/Barqawiz/IntelliJava?style=flat-square" />
+</a>
+
+<a href="https://awesome.re" alt="awesome listing">
+    <img src="https://awesome.re/badge.svg" />
+</a>
+</p>
+
 # Intelligent Java
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=for-the-badge)](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.7.0)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Barqawiz/IntelliJava?style=for-the-badge)](https://github.com/Barqawiz/IntelliJava/releases)
-[![GitHub](https://img.shields.io/github/license/Barqawiz/IntelliJava?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
-
-
-Intelligent java (IntelliJava) is the ultimate tool for Java developers looking to integrate with the latest language models and deep learning frameworks. The library provides a simple and intuitive API with convenient methods for sending input to models like GPT-3 and DALL·E, and receiving generated text, speech or images. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
+Intelligent java is the ultimate tool to integrate with the latest language models and deep learning frameworks using java. The library provides an intuitive functions for sending input to models like GPT-3 and DALL·E, and receiving generated text, speech or images. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
 
 The supported models:
-- **OpenAI**: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred when you want quality results without tuning.
-- **Cohere.ai**: Generate text; Cohere allows you to generate your language model to suit your specific needs.
+- **OpenAI**: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred for quality results without tuning.
+- **Cohere.ai**: Generate text; Cohere allows you to custom your language model to suit your specific needs.
 - **Google AI**: Generate audio from text; Access DeepMind’s speech models.
 
 # How to use
 
-1. Import the core jar file OR maven dependency (check the Integration section).
+1. Add the maven dependency or import the core jar file (check the Integration section).
 2. Add Gson dependency if using the jar file; otherwise, it's handled by maven or Gradle.
 3. Call the ``RemoteLanguageModel`` for the language models, ``RemoteImageModel`` for image generation and ``RemoteSpeechModel`` for text to speech models.
 
@@ -42,8 +60,6 @@ implementation("io.github.barqawiz:intellijava.core:0.7.0")
 
 Jar download:
 [intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.7.0/intellijava.core-0.7.0.jar).
-
-For ready integration: [try the sample_code](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
 
 ## Code Example
 **Language model code** (2 steps):
@@ -87,7 +103,7 @@ Output:<br>
 AudioHelper.saveTempAudio(decodedAudio);
 ```
 
-For full example check the code inside sample_code project.
+For full examples and ready integration try [the sample_code](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
 
 ## Third-party dependencies
 The only dependencies is **GSON**.
@@ -128,5 +144,3 @@ Copyright 2023 Github.com/Barqawiz/IntelliJava
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-
-<img src="images/intelligent_java_header_footer.png">
