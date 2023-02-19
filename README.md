@@ -1,5 +1,5 @@
 <p align="center">
-<img src="images/intelligent_java_header.png" height="140">
+<img src="images/intelligent_java_header.png">
 </p>
 
 <p align="center">
