@@ -20,7 +20,7 @@
 </p>
 
 # Intelligent Java
-Intelligent java is the ultimate tool to integrate with the latest language models and deep learning frameworks using java. The library provides an intuitive functions for sending input to models like GPT-3 and DALL·E, and receiving generated text, speech or images. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
+Intelligent java (IntelliJava) is the ultimate tool to integrate with the latest language models and deep learning frameworks using java. The library provides an intuitive functions for sending input to models like GPT-3 and DALL·E, and receiving generated text, speech or images. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
 
 The supported models:
 - **OpenAI**: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred for quality results without tuning.
