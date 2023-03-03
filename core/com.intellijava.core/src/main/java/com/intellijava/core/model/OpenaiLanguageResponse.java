@@ -40,7 +40,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
     }
     
     /**
-     * A nested class that represents an choice object returned in the API response.
+     * A nested class for the API response's choice represents the model output.
      */
     public static class Choice {
     	/**
@@ -59,7 +59,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
         }
         
         /**
-         * Get the text property of the choice object
+         * Gets the text property of the choice object
          * 
          * @return the text of the choice object
          */
@@ -75,7 +75,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 			this.text = text;
 		}
 		/**
-         * Get the index property of the choice object
+         * Gets the index property of the choice object
          * 
          * @return the index of the choice object
          */
@@ -91,7 +91,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 			this.index = index;
 		}
 		/**
-         * Get the logprobs property of the choice object
+         * Gets the logprobs property of the choice object
          * 
          * @return the logprobs of the choice object
          */
@@ -107,7 +107,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 			this.logprobs = logprobs;
 		}
 		/**
-         * Get the finish_reason property of the choice object
+         * Gets the finish_reason property of the choice object
          * 
          * @return the finish_reason of the choice object
          */
@@ -142,7 +142,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
         }
         
         /**
-         * Get the prompt_tokens property
+         * Gets the prompt_tokens property
          * 
          * @return the value of prompt_tokens property
          */
@@ -150,7 +150,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 			return prompt_tokens;
 		}
 		/**
-         * Set the prompt_tokens property
+         * Sets the prompt_tokens property
          * 
          * @param prompt_tokens the new value of the prompt_tokens property
          */
@@ -158,7 +158,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 			this.prompt_tokens = prompt_tokens;
 		}
 		/**
-         * Get the completion_tokens property
+         * Gets the completion_tokens property
          * 
          * @return the value of completion_tokens property
          */
@@ -166,7 +166,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 			return completion_tokens;
 		}
 		/**
-         * Set the completion_tokens property
+         * Sets the completion_tokens property
          * 
          * @param completion_tokens the new value of the completion_tokens property
          */
@@ -174,7 +174,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 			this.completion_tokens = completion_tokens;
 		}
 		/**
-         * Get the total_tokens property
+         * Gets the total_tokens property
          * 
          * @return the value of total_tokens property
          */
@@ -182,7 +182,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 			return total_tokens;
 		}
 		/**
-         * Set the total_tokens property
+         * Sets the total_tokens property
          * 
          * @param total_tokens the new value of the total_tokens property
          */
@@ -194,7 +194,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
     }
     
     /**
-     * Get the object property
+     * Gets the object type of the API response.
      * 
      * @return the value of object property
      */
@@ -203,15 +203,16 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 	}
 
 	/**
-     * Set the object property
+     * Sets the object type of the API response.
      * 
      * @param object the new value of the object property
      */
 	public void setObject(String object) {
 		this.object = object;
 	}
+	
 	/**
-     * Get the created property
+     * Gets the timestamp for the API response.
      * 
      * @return the value of created property
      */
@@ -220,7 +221,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 	}
 
 	/**
-     * Set the created property
+     * Sets the timestamp for the API response.
      * 
      * @param created the timestamp when the API request was created.
      */
@@ -229,7 +230,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 	}
 
 	/**
-     * Get the model name property
+     * Gets the name of the language model
      * 
      * @return the model id or name used to generate the API response
      */
@@ -238,7 +239,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 	}
 
 	/**
-     * Set the model name property
+     * Setsthe name of the language model
      * 
      * @param model the model id or name used to generate the API response
      */
@@ -247,7 +248,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 	}
 
 	/**
-     * Get the choices property
+     * Gets the choices property
      * 
      * @return list of Choice objects that contain the generated completions and additional information 
      */
@@ -256,7 +257,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 	}
 
 	/**
-     * Set the choices property
+     * Sets the choices property
      * 
      * @param choices list of Choice objects that contain the generated completions and additional information 
      */
@@ -265,7 +266,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 	}
 
 	/**
-     * Get the usage property
+     * Gets the usage statistics for generating the API response.
      * 
      * @return the usage object that contains usage statistics of the API request 
      */
@@ -274,7 +275,7 @@ public class OpenaiLanguageResponse extends BaseRemoteModel {
 	}
 
 	/**
-     * Set the usage property
+     * Sets the usage statistics for generating the API response.
      * 
      * @param usage the usage object that contains usage statistics of the API request 
      */

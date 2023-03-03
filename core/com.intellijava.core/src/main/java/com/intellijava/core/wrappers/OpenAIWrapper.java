@@ -23,6 +23,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import com.intellijava.core.model.BaseRemoteModel;
+import com.intellijava.core.model.OpenaiChatResponse;
 import com.intellijava.core.model.OpenaiImageResponse;
 import com.intellijava.core.model.OpenaiLanguageResponse;
 import com.intellijava.core.utils.Config2;
@@ -54,10 +55,13 @@ public class OpenAIWrapper implements LanguageModelInterface, ImageModelInterfac
 	 * Generate text from remote large language model based on the received prompt.
 	 * 
 	 * @param params key and value for the API parameters
-	 * 			model the model name, example: text-davinci-002. For more details about GPT3 models: https://beta.openai.com/docs/models/gpt-3
+	 * 			model the model name, example: text-davinci-002.
 	 * 			prompt text of the required action or the question.
 	 * 			temperature higher values means more risks and creativity.
 	 * 			maxTokens maximum size of the model input and output.
+	 * 
+	 * For more GPT3 models: https://beta.openai.com/docs/models/gpt-3
+	 * 
 	 * @return BaseRemoteModel for model response
 	 * @throws IOException if there is an error when connecting to the OpenAI API.
 	 */
@@ -84,6 +88,47 @@ public class OpenAIWrapper implements LanguageModelInterface, ImageModelInterfac
 
         // get the response and convert to model 
         OpenaiLanguageResponse resModel = ConnHelper.convertSteamToModel(connection.getInputStream(), OpenaiLanguageResponse.class);
+        return resModel;
+    }
+    
+    /**
+	 * 
+	 * Generate text from remote large language model based on the chat history.
+	 * 
+	 * @param params key and value for the API parameters
+	 * 			model the model name, example: gpt-3.5-turbo. 
+	 * 			messages a dictionary of role and prompt.
+	 * 			temperature higher values means more risks and creativity.
+	 * 			maxTokens maximum size of the model input and output.
+	 * 
+	 * For more GPT3 models: https://beta.openai.com/docs/models/gpt-3
+	 * 
+	 * @return BaseRemoteModel for model response
+	 * @throws IOException if there is an error when connecting to the OpenAI API.
+	 */
+    public BaseRemoteModel generateChatText(Map<String, Object> params) throws IOException {
+    	
+        String url = API_BASE_URL + Config2.getInstance().getProperty("url.openai.chatgpt");
+
+        String json = ConnHelper.convertMaptToJson(params);
+        
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Authorization", "Bearer " + API_KEY);
+        connection.setDoOutput(true);
+
+        try (OutputStream outputStream = connection.getOutputStream()) {
+            outputStream.write(json.getBytes(StandardCharsets.UTF_8));
+        }
+
+        if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+        	String errorMessage = ConnHelper.getErrorMessage(connection);
+            throw new IOException(errorMessage);
+        }
+
+        // get the response and convert to model 
+        OpenaiChatResponse resModel = ConnHelper.convertSteamToModel(connection.getInputStream(), OpenaiChatResponse.class);
         return resModel;
     }
     
