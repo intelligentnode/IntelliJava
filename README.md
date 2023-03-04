@@ -4,7 +4,7 @@
 
 <p align="center">
 
-<a href="https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.7.0" alt="maven build">
+<a href="https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.8.0" alt="maven build">
     <img src="https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=flat-square" />
 </a>
 
