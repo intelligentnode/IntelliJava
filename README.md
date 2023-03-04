@@ -20,10 +20,10 @@
 </p>
 
 # Intelligent Java
-Intelligent java (IntelliJava) is the ultimate tool to integrate with the latest language models and deep learning frameworks using java. The library provides an intuitive functions for sending input to models like GPT-3 and DALL·E, and receiving generated text, speech or images. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
+Intelligent java (IntelliJava) is the ultimate tool to integrate with the latest language models and deep learning frameworks using java. The library provides an intuitive functions for sending input to models like ChatGPT and DALL·E, and receiving generated text, speech or images. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
 
 The supported models:
-- **OpenAI**: Access GPT-3 to generate text and DALL·E to generate images. OpenAI is preferred for quality results without tuning.
+- **OpenAI**: Access ChatGPT, GPT3 to generate text and DALL·E to generate images. OpenAI is preferred for quality results without tuning.
 - **Cohere.ai**: Generate text; Cohere allows you to custom your language model to suit your specific needs.
 - **Google AI**: Generate audio from text; Access DeepMind’s speech models.
 
@@ -31,7 +31,7 @@ The supported models:
 
 1. Add the maven dependency or import the core jar file (check the Integration section).
 2. Add Gson dependency if using the jar file; otherwise, it's handled by maven or Gradle.
-3. Call the ``RemoteLanguageModel`` for the language models, ``RemoteImageModel`` for image generation and ``RemoteSpeechModel`` for text to speech models.
+3. Call the ``RemoteLanguageModel`` for the language models, ``RemoteImageModel`` for image generation and ``RemoteSpeechModel`` for text to speech models, ``Chatbot`` for ChatGPT.
 
 ## Integration
 The package released to Maven Central Repository:
@@ -41,23 +41,23 @@ Maven:
 <dependency>
     <groupId>io.github.barqawiz</groupId>
     <artifactId>intellijava.core</artifactId>
-    <version>0.7.0</version>
+    <version>0.8.0</version>
 </dependency>
 ```
 
 Gradle:
 
 ```
-implementation 'io.github.barqawiz:intellijava.core:0.7.0'
+implementation 'io.github.barqawiz:intellijava.core:0.8.0'
 ```
 
 Gradle(Kotlin):
 ```
-implementation("io.github.barqawiz:intellijava.core:0.7.0")
+implementation("io.github.barqawiz:intellijava.core:0.8.0")
 ```
 
 Jar download:
-[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.7.0/intellijava.core-0.7.0.jar).
+[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.8.0/intellijava.core-0.8.0.jar).
 
 ## Code Example
 **Language model code** (2 steps):
@@ -100,7 +100,24 @@ Output:<br>
 // save temporary audio file for testing
 AudioHelper.saveTempAudio(decodedAudio);
 ```
+<br><br>
+**ChatGPT code**:
+```java
+// 1- initiate the chat model.
+Chatbot bot = new Chatbot(apiKey, SupportedChatModels.openai);
 
+// 2- prepare the chat history by calling addMessage.
+String mode = "You are a helpful astronomy assistant.";
+ChatModelInput input = new ChatGPTInput.Builder(mode)
+								.addUserMessage("what is the space between moon and earth")
+								.build();
+
+// 3- call chat!
+List<String> resValues =  bot.chat(input);
+```
+Output:``` The average distance between the Moon and the Earth is about 238,855 miles (384,400 kilometers). ```
+
+<br>
 For full examples and ready integration try [the sample_code](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
 
 ## Third-party dependencies
@@ -116,7 +133,7 @@ For jar download:
 
 # Roadmap
 Call for contributors:
-- [x] Add support to OpenAI Completion API.
+- [x] Add support to OpenAI Completion.
 - [x] Add support to OpenAI DALL·E 2.
 - [ ] Add support to other OpenAI functions.
 - [x] Add support to cohere generate API.
