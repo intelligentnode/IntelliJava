@@ -45,16 +45,16 @@ public class OpenaiChatResponse extends BaseRemoteModel {
         /**
          * Gets the model message.
          * 
-         * @return message
+         * @return message model response message.
          */
         public Message getMessage() {
             return message;
         }
 
         /**
-         * Sets the model message
+         * Sets the model message.
          * 
-         * @param the message object of the model response.
+         * @param message model response message.
          */
         public void setMessage(Message message) {
             this.message = message;
@@ -63,7 +63,7 @@ public class OpenaiChatResponse extends BaseRemoteModel {
         /**
          * Gets the reason to end the message for validating missing response reasons.
          *  
-         * @return reason string
+         * @return reason string.
          */
         public String getFinish_reason() {
             return finish_reason;
@@ -73,7 +73,7 @@ public class OpenaiChatResponse extends BaseRemoteModel {
          * 
          * Sets the reason to end the message text
          * 
-         * @param finish_reason
+         * @param finish_reason string.
          */
         public void setFinish_reason(String finish_reason) {
             this.finish_reason = finish_reason;
@@ -171,6 +171,9 @@ public class OpenaiChatResponse extends BaseRemoteModel {
         private String role;
         private String content;
         
+        /**
+         * Message default constructor.
+         */
         public Message() {}
 
         /**

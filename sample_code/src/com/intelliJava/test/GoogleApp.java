@@ -4,8 +4,8 @@ package com.intelliJava.test;
 import java.io.IOException;
 import com.intellijava.core.controller.RemoteSpeechModel;
 import com.intellijava.core.model.SpeechModels;
-import com.intellijava.core.model.input.SpeechInput;
-import com.intellijava.core.model.input.SpeechInput.Gender;
+import com.intellijava.core.model.input.Text2SpeechInput;
+import com.intellijava.core.model.input.Text2SpeechInput.Gender;
 import com.intellijava.core.utils.AudioHelper;
 
 public class GoogleApp {
@@ -46,7 +46,7 @@ public class GoogleApp {
 		
 		RemoteSpeechModel model = new RemoteSpeechModel(apiKey, SpeechModels.google);
 		
-		SpeechInput input = new SpeechInput.Builder("Hi, I am Intelligent Java.").build();
+		Text2SpeechInput input = new Text2SpeechInput.Builder("Hi, I am Intelligent Java.").build();
 		
 		// get the audio bytes
 		// you can play it using libraries like javafx

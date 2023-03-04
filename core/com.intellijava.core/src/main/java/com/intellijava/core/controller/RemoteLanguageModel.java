@@ -25,7 +25,6 @@ import com.intellijava.core.model.CohereLanguageResponse.Generation;
 import com.intellijava.core.model.OpenaiLanguageResponse;
 import com.intellijava.core.model.OpenaiLanguageResponse.Choice;
 import com.intellijava.core.model.SupportedLangModels;
-import com.intellijava.core.model.OpenaiImageResponse.Data;
 import com.intellijava.core.model.input.LanguageModelInput;
 import com.intellijava.core.wrappers.CohereAIWrapper;
 import com.intellijava.core.wrappers.OpenAIWrapper;
@@ -55,7 +54,7 @@ public class RemoteLanguageModel {
 	/**
 	 * Constructor for the RemoteLanguageModel class.
 	 *
-	 * Creates an instance of the class and sets up the key and the API type.
+	 * Creates an instance of the class and set the API type and key.
 	 *
 	 * @param keyValue      the API key.
 	 * @param keyTypeString either openai (default) or cohere or send empty string
@@ -83,8 +82,8 @@ public class RemoteLanguageModel {
 	/**
 	 * Constructor for the RemoteLanguageModel class.
 	 *
-	 * Creates an instance of the class and sets up the API key and the enum key
-	 * type.
+	 * Creates an instance of the class and set the API enum type and key.
+	 * 
 	 *
 	 * @param keyValue the API key.
 	 * @param keyType  enum version from the key type (SupportedModels).
