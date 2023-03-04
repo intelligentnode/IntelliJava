@@ -30,7 +30,7 @@ The supported models:
 
 1. Add the maven dependency or import the core jar file (check the Integration section).
 2. Add Gson dependency if using the jar file; otherwise, it's handled by maven or Gradle.
-3. Call the ``RemoteLanguageModel`` for the language models, ``RemoteImageModel`` for image generation and ``RemoteSpeechModel`` for text to speech models, ``Chatbot`` for ChatGPT.
+3. Call the ``RemoteLanguageModel`` for the language models, ``RemoteImageModel`` for image generation, ``RemoteSpeechModel`` for text to speech models, and ``Chatbot`` for ChatGPT.
 
 ## Integration
 The package released to Maven Central Repository:
