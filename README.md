@@ -1,5 +1,5 @@
 <p align="center">
-<img src="images/intelligent_java_header.png">
+<img src="images/intelligent_java_header.png" width="500em">
 </p>
 
 <p align="center">
@@ -16,7 +16,6 @@
     <img src="https://img.shields.io/github/license/Barqawiz/IntelliJava?style=flat-square" />
 </a>
 
-<img src="https://awesome.re/badge.svg" />
 </p>
 
 # Intelligent Java
@@ -72,7 +71,9 @@ LanguageModelInput langInput = new LanguageModelInput.Builder("Summarize the plo
 String resValue = langModel.generateText(langInput);
 ```
 Output:```Inception follows Dom Cobb, a professional thief, who is offered a chance at redemption in exchange for planting an idea in a target's mind. He must navigate a dangerous landscape of dream-sharing technology and battle his inner demons in order to complete the mission and find his way back to reality.```
-<br><br>
+
+<br>
+
 **Image generation code** (2 steps):
 ```java
 // 1- initiate the remote image model
@@ -85,7 +86,9 @@ List<String> images = imageModel.generateImages(imageInput);
 ```
 Output:<br>
 <img src="images/response_image.png" height="220px">
-<br><br>
+
+<br>
+
 **Text to speech code** (2 steps):
 ```java
 // 1- initiate the remote speech model
@@ -100,7 +103,9 @@ Output:<br>
 // save temporary audio file for testing
 AudioHelper.saveTempAudio(decodedAudio);
 ```
-<br><br>
+
+<br>
+
 **ChatGPT code**:
 ```java
 // 1- initiate the chat model.
@@ -118,6 +123,7 @@ List<String> resValues =  bot.chat(input);
 Output:``` The average distance between the Moon and the Earth is about 238,855 miles (384,400 kilometers). ```
 
 <br>
+
 For full examples and ready integration try [the sample_code](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
 
 ## Third-party dependencies
