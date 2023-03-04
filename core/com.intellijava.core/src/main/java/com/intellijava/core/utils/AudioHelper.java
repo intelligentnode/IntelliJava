@@ -32,7 +32,7 @@ public class AudioHelper {
 	 * 
 	 * decode base64 audio string and convert to audio byte array.
 	 * 
-	 * @param audioContent
+	 * @param audioContent based64 format audio.
 	 * @return audio byte array
 	 */
 	public static byte[] decode(String audioContent) {
@@ -43,8 +43,8 @@ public class AudioHelper {
 	 * 
 	 * update the global location to save temporary audio files.
 	 * 
-	 * @param fileTempAudio
-	 * @return
+	 * @param fileTempAudio file path and name.
+	 * @return status true or false.
 	 */
 	public static boolean updateGlobalTempLocation(String fileTempAudio) {
 		boolean res = false;
@@ -64,8 +64,8 @@ public class AudioHelper {
 	 * 
 	 * This function created for testing purposes, it is recommended to use third party libraries for audio processing. 
 	 * 
-	 * @param decodedAudio
-	 * @return save status
+	 * @param decodedAudio audio byte format.
+	 * @return saving status
 	 */
 	public static boolean saveTempAudio(byte[] decodedAudio) {
 		boolean res = true;
@@ -80,7 +80,6 @@ public class AudioHelper {
 
 	/**
 	 * clean the temporary audio files.
-	 * 
 	 */
 	public static void deleteTempAudio() {
 		

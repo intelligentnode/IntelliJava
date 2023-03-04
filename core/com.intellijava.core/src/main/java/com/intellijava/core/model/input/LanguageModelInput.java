@@ -35,11 +35,11 @@ public class LanguageModelInput {
     /**
      * LanguageModelInput default constructor.
      * 
-     * @param model
-     * @param prompt
-     * @param temperature
-     * @param maxTokens
-     * @param numberOfOutputs
+     * @param model name.
+     * @param prompt text.
+     * @param temperature model creativity between 0 and 1.
+     * @param maxTokens number of input and output tokens.
+     * @param numberOfOutputs number of generated text.
      */
     public LanguageModelInput(String model, String prompt, float temperature, int maxTokens, int numberOfOutputs) {
 		super();
