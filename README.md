@@ -14,7 +14,7 @@ The supported models:
 
 1. Add the maven dependency or import the core jar file (check the Integration section).
 2. Add Gson dependency if using the jar file; otherwise, it's handled by maven or Gradle.
-3. Call the ``RemoteLanguageModel`` for the language models, ``RemoteImageModel`` for image generation and ``RemoteSpeechModel`` for text to speech models, ``Chatbot`` for ChatGPT.
+3. Call the ``RemoteLanguageModel`` for the language models, ``RemoteImageModel`` for image generation, ``RemoteSpeechModel`` for text to speech models, and ``Chatbot`` for ChatGPT.
 
 ## Integration
 The package released to Maven Central Repository:
@@ -117,16 +117,16 @@ The only dependencies is **GSON**.
 
 # Roadmap
 Call for contributors:
-- [x]   Add support to OpenAI Completion.
-- [x]   Add support to OpenAI DALL·E 2.
-- [ ]   Add support to other OpenAI functions.
-- [x]   Add support to cohere generate API.
-- [ ]   Add support to Google language models.
-- [x]   Add support to Google speech models.
-- [ ]   Add support to Amazon language models.
-- [ ]   Add support to Azure nlp models.
-- [ ]   Add support to Midjourney image generation.
-- [ ]   Add support to WuDao 2.0 model.
+- [x]  Add support to OpenAI Completion.
+- [x]  Add support to OpenAI DALL·E 2.
+- [ ]  Add support to other OpenAI functions.
+- [x]  Add support to cohere generate API.
+- [ ]  Add support to Google language models.
+- [x]  Add support to Google speech models.
+- [ ]  Add support to Amazon language models.
+- [ ]  Add support to Azure nlp models.
+- [ ]  Add support to Midjourney image generation.
+- [ ]  Add support to WuDao 2.0 model.
 
 
 # License
