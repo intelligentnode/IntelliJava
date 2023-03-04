@@ -97,7 +97,7 @@ Output:``` The average distance between the Moon and the Earth is about 238,855 
 RemoteSpeechModel model = new RemoteSpeechModel(apiKey, SpeechModels.google);
 
 // 2- call generateEnglishText with any text
-SpeechInput input = new SpeechInput.Builder("Hi, I am Intelligent Java.").build();
+Text2SpeechInput input = new Text2SpeechInput.Builder("Hi, I am Intelligent Java.").build();
 byte[] decodedAudio = model.generateEnglishText(input);
 ```
 Output:
