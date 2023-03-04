@@ -42,9 +42,9 @@ public class ImageModelInput {
     /**
      * ImageModelInput default constructor.
      * 
-     * @param prompt
-     * @param numberOfImages
-     * @param imageSize
+     * @param prompt image generation text.
+     * @param numberOfImages number of generated images.
+     * @param imageSize size of the generated images, options are: 256x256, 512x512, or 1024x1024.
      */
     public ImageModelInput(String prompt, int numberOfImages, String imageSize) {
 		super();

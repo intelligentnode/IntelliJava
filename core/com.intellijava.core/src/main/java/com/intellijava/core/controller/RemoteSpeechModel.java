@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Map;
 import com.intellijava.core.model.AudioResponse;
 import com.intellijava.core.model.SpeechModels;
-import com.intellijava.core.model.input.SpeechInput;
-import com.intellijava.core.model.input.SpeechInput.Gender;
+import com.intellijava.core.model.input.Text2SpeechInput;
+import com.intellijava.core.model.input.Text2SpeechInput.Gender;
 import com.intellijava.core.utils.AudioHelper;
 import com.intellijava.core.wrappers.GoogleAIWrapper;
 
@@ -118,7 +118,7 @@ public class RemoteSpeechModel {
 	 * @return byte array of the decoded audio content.
 	 * @throws IOException in case of communication error.
 	 */
-	public byte[] generateEnglishText(SpeechInput input) throws IOException {
+	public byte[] generateEnglishText(Text2SpeechInput input) throws IOException {
 		
 		if (this.keyType == SpeechModels.google) {
 			return this.generateGoogleText(input.getText(), input.getGender(), "en-gb");

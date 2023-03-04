@@ -35,11 +35,11 @@ public class LanguageModelInput {
     /**
      * LanguageModelInput default constructor.
      * 
-     * @param model
-     * @param prompt
-     * @param temperature
-     * @param maxTokens
-     * @param numberOfOutputs
+     * @param model name.
+     * @param prompt text.
+     * @param temperature model creativity between 0 and 1.
+     * @param maxTokens number of input and output tokens.
+     * @param numberOfOutputs number of generated text.
      */
     public LanguageModelInput(String model, String prompt, float temperature, int maxTokens, int numberOfOutputs) {
 		super();
@@ -73,7 +73,7 @@ public class LanguageModelInput {
         }
 
         /**
-         *  Setter for model.
+         *  Sets the model.
          * @param model the model name. 
          * 
          * The largest OpenAI model is text-davinci-003.
@@ -87,7 +87,7 @@ public class LanguageModelInput {
         }
 
         /**
-         *  Setter for prompt.
+         *  Sets the prompt.
          * @param prompt text of the required action or the question.
          * @return instance of Builder.
          */
@@ -97,7 +97,7 @@ public class LanguageModelInput {
         }
 
         /**
-         *  Setter for temperature.
+         *  Sets the temperature.
          * @param temperature higher values means more risks and creativity. 
          * @return instance of Builder.
          */
@@ -107,7 +107,7 @@ public class LanguageModelInput {
         }
         
         /**
-         *  Setter for maxTokens.
+         *  Sets the maxTokens.
          * @param maxTokens maximum size of the model input and output. 
          * @return instance of Builder
          */
@@ -117,7 +117,7 @@ public class LanguageModelInput {
         }
         
         /**
-        *  Setter for numberOfOutputs
+        *  Sets the numberOfOutputs
         * @param numberOfOutputs number of model outputs, default value is 1. 
         * 
         * Cohere maximum value is five.
@@ -141,7 +141,7 @@ public class LanguageModelInput {
         }
     }
     /**
-     * Getter for model.
+     * Gets the model.
      * @return model
      */
     public String getModel() {
@@ -149,7 +149,7 @@ public class LanguageModelInput {
     }
 
     /**
-     * Getter for prompt.
+     * Gets the prompt.
      * @return prompt
      */
     public String getPrompt() {
@@ -157,7 +157,7 @@ public class LanguageModelInput {
     }
     
     /**
-     * Getter for temperature.
+     * Gets the temperature.
      * @return temperature
      */
     public float getTemperature() {
@@ -165,7 +165,7 @@ public class LanguageModelInput {
     }
     
     /**
-     * Getter for maxTokens.
+     * Gets the maxTokens.
      * @return maxTokens
      */
     public int getMaxTokens() {
@@ -173,7 +173,7 @@ public class LanguageModelInput {
     }
 
     /**
-     * Getter for number of model outputs.
+     * Gets the number of model outputs.
      * @return numberOfOutputs
      */
 	public int getNumberOfOutputs() {
@@ -181,7 +181,7 @@ public class LanguageModelInput {
 	}
 
 	/**
-	 * Setter for model.
+	 * Sets the model.
 	 * 
 	 * @param model
 	 */
@@ -191,7 +191,7 @@ public class LanguageModelInput {
 
 	
 	/**
-	 * Setter for prompt.
+	 * Sets the prompt.
 	 * 
 	 * @param prompt
 	 */
@@ -201,7 +201,7 @@ public class LanguageModelInput {
 
 	
 	/**
-	 * Setter for temperature.
+	 * Sets the temperature.
 	 * 
 	 * @param temperature higher values means more risks and creativity.
 	 */
@@ -210,7 +210,7 @@ public class LanguageModelInput {
 	}
 
 	/**
-	 * Setter for maxTokens.
+	 * Sets the maxTokens.
 	 * 
 	 * @param maxTokens maximum size of the model input and output.
 	 */
@@ -219,7 +219,7 @@ public class LanguageModelInput {
 	}
 
 	/**
-	 * Setter for numberOfOutputs.
+	 * Sets the numberOfOutputs.
 	 * 
 	 * @param numberOfOutputs number of model outputs, default value is 1.
 	 */

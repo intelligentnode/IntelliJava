@@ -1,14 +1,14 @@
 package com.intellijava.core.model.input;
 
 /**
- * SpeechInput class represents the speech input with the provided text and gender.
+ * SpeechTextInput class represents the speech input with the provided text and gender.
  * 
  * It also provides a Builder to create an instance with optional fields.
  * 
  * @author github.com/Barqawiz
  * 
  */
-public class SpeechInput {
+public class Text2SpeechInput {
 
     /**
      * The text of the speech input.
@@ -26,7 +26,7 @@ public class SpeechInput {
      * @param text the text of the speech input.
      * @param gender the gender of the speech input.
      */
-    public SpeechInput(String text, Gender gender) {
+    public Text2SpeechInput(String text, Gender gender) {
     	this.text = text;
     	this.gender = gender;
     }
@@ -36,7 +36,7 @@ public class SpeechInput {
      * 
      * @param builder a Builder to create an instance of SpeechInput with optional fields.
      */
-    private SpeechInput(Builder builder) {
+    private Text2SpeechInput(Builder builder) {
         this.text = builder.text;
         this.gender = builder.gender;
     }
@@ -91,8 +91,8 @@ public class SpeechInput {
          * Build a new instance of SpeechInput with the values set in the Builder.
          * @return a new instance of SpeechInput.
          */
-        public SpeechInput build() {
-            return new SpeechInput(this);
+        public Text2SpeechInput build() {
+            return new Text2SpeechInput(this);
         }
     }
 

@@ -11,8 +11,8 @@ import org.junit.Test;
 import com.intellijava.core.controller.RemoteSpeechModel;
 import com.intellijava.core.model.AudioResponse;
 import com.intellijava.core.model.SpeechModels;
-import com.intellijava.core.model.input.SpeechInput;
-import com.intellijava.core.model.input.SpeechInput.Gender;
+import com.intellijava.core.model.input.Text2SpeechInput;
+import com.intellijava.core.model.input.Text2SpeechInput.Gender;
 import com.intellijava.core.utils.AudioHelper;
 import com.intellijava.core.utils.Config2;
 import com.intellijava.core.wrappers.GoogleAIWrapper;
@@ -83,7 +83,7 @@ public class GoogleSpeechTest {
 	
 	@Test
 	public void testText2FemaleRemoteSpeecModel() {  
-		SpeechInput input = new SpeechInput.Builder("Hi, I am Intelligent Java.").
+		Text2SpeechInput input = new Text2SpeechInput.Builder("Hi, I am Intelligent Java.").
 				setGender(Gender.FEMALE).build();
 		
 		RemoteSpeechModel model = new RemoteSpeechModel(apiKey, SpeechModels.google);
@@ -103,7 +103,7 @@ public class GoogleSpeechTest {
 	
 	@Test
 	public void testText2FemaleRemoteSpeecModel2() {  
-		SpeechInput input = new SpeechInput("Hi, I am Intelligent Java.", Gender.MALE);
+		Text2SpeechInput input = new Text2SpeechInput("Hi, I am Intelligent Java.", Gender.MALE);
 		
 		RemoteSpeechModel model = new RemoteSpeechModel(apiKey, SpeechModels.google);
 		
