@@ -118,16 +118,16 @@ The only dependencies is **GSON**.
 
 # Roadmap
 Call for contributors:
-- [x]  Add support to OpenAI Completion.
-- [x]  Add support to OpenAI DALL·E 2.
-- [ ]  Add support to other OpenAI functions.
-- [x]  Add support to cohere generate API.
-- [ ]  Add support to Google language models.
-- [x]  Add support to Google speech models.
-- [ ]  Add support to Amazon language models.
-- [ ]  Add support to Azure nlp models.
-- [ ]  Add support to Midjourney image generation.
-- [ ]  Add support to WuDao 2.0 model.
+- [x]   Add support to OpenAI Completion.
+- [x]   Add support to OpenAI DALL·E 2.
+- [ ]   Add support to other OpenAI functions.
+- [x]   Add support to cohere generate API.
+- [ ]   Add support to Google language models.
+- [x]   Add support to Google speech models.
+- [ ]   Add support to Amazon language models.
+- [ ]   Add support to Azure nlp models.
+- [ ]   Add support to Midjourney image generation.
+- [ ]   Add support to WuDao 2.0 model.
 
 
 # License

@@ -1,4 +1,5 @@
 com.intellijava.core.controller
+com.intellijava.core.function
 com.intellijava.core.model
 com.intellijava.core.model.input
 com.intellijava.core.utils
