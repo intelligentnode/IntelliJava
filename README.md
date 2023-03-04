@@ -81,8 +81,7 @@ Chatbot bot = new Chatbot(apiKey, "openai");
 // 2- prepare the chat history by calling addMessage.
 String mode = "You are a helpful astronomy assistant.";
 ChatModelInput input = new ChatGPTInput.Builder(mode)
-								.addUserMessage("what is the space between moon and earth")
-								.build();
+               .addUserMessage("what is the space between moon and earth").build();
 
 // 3- call chat!
 List<String> resValues =  bot.chat(input);
