@@ -4,7 +4,7 @@
 
 <p align="center">
 
-<a href="https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.8.0" alt="maven build">
+<a href="https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.8.2" alt="maven build">
     <img src="https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=flat-square" />
 </a>
 
@@ -40,23 +40,23 @@ Maven:
 <dependency>
     <groupId>io.github.barqawiz</groupId>
     <artifactId>intellijava.core</artifactId>
-    <version>0.8.0</version>
+    <version>0.8.2</version>
 </dependency>
 ```
 
 Gradle:
 
 ```
-implementation 'io.github.barqawiz:intellijava.core:0.8.0'
+implementation 'io.github.barqawiz:intellijava.core:0.8.2'
 ```
 
 Gradle(Kotlin):
 ```
-implementation("io.github.barqawiz:intellijava.core:0.8.0")
+implementation("io.github.barqawiz:intellijava.core:0.8.2")
 ```
 
 Jar download:
-[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.8.0/intellijava.core-0.8.0.jar).
+[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.8.2/intellijava.core-0.8.2.jar).
 
 ## Code Example
 **Language model code** (2 steps):
