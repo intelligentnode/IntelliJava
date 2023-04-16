@@ -25,6 +25,8 @@ public class GoogleApp {
 			
 			tryGoogleSpeechModel(apiKey);
 			
+			System.out.print("Check the temp forlder for the generated audio.");
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,6 +53,33 @@ public class GoogleApp {
 		// get the audio bytes
 		// you can play it using libraries like javafx
 		byte[] decodedAudio = model.generateEnglishText(input);
+		
+		// save temporary audio file
+		AudioHelper.saveTempAudio(decodedAudio);
+
+	}
+	
+	/**
+	 * Generate speech from text using google API.
+	 * 
+	 * To use this model:
+	 * 1- Go to console.cloud.google.com.
+	 * 2- Enable "Cloud Text-to-Speech API" from APIs Services.
+	 * 3- Generate API key from APIs and services Credentials page.
+	 * 
+	 * @param apiKey
+	 * @throws IOException
+	 */
+	private static void tryGermanSpeechModel(String apiKey) throws IOException {
+
+		
+		RemoteSpeechModel model = new RemoteSpeechModel(apiKey, SpeechModels.google);
+		
+		Text2SpeechInput input = new Text2SpeechInput.Builder("Hallo, ich bin Intelligent Java.").build();
+		
+		// get the audio bytes
+		// you can play it using libraries like javafx
+		byte[] decodedAudio = model.generateGermanText(input);
 		
 		// save temporary audio file
 		AudioHelper.saveTempAudio(decodedAudio);

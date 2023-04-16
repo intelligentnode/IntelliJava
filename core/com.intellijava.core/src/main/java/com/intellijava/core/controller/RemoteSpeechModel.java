@@ -110,9 +110,9 @@ public class RemoteSpeechModel {
 	}
 	
 	/**
-	 * Generates speech from text using the support models.
+	 * Generates speech using advanced audio models.
 	 * 
-	 * You can save the returned byte to audio file using FileOutputStream("path/audio.mp3"). 
+	 * You can save the result byte to audio file using FileOutputStream("path/audio.mp3"). 
 	 * 
 	 * @param input SpeechInput object containing the text and gender to use.
 	 * @return byte array of the decoded audio content.
@@ -121,7 +121,101 @@ public class RemoteSpeechModel {
 	public byte[] generateEnglishText(Text2SpeechInput input) throws IOException {
 		
 		if (this.keyType == SpeechModels.google) {
-			return this.generateGoogleText(input.getText(), input.getGender(), "en-gb");
+			return this.generateGoogleText(input.getText(), input.getGender(), "en-GB");
+		} else {
+			throw new IllegalArgumentException("the keyType not supported");
+		}
+	}
+	
+	
+	/**
+	 * Generates speech using advanced audio models.
+	 * 
+	 * You can save the result byte to audio file using FileOutputStream("path/audio.mp3"). 
+	 * 
+	 * @param input SpeechInput object containing the text and gender to use.
+	 * @return byte array of the decoded audio content.
+	 * @throws IOException in case of communication error.
+	 */
+	public byte[] generateMandarinText(Text2SpeechInput input) throws IOException {
+		
+		if (this.keyType == SpeechModels.google) {
+			return this.generateGoogleText(input.getText(), input.getGender(), "cmn-CN");
+		} else {
+			throw new IllegalArgumentException("the keyType not supported");
+		}
+	}
+	
+	/**
+	 * Generates speech using advanced audio models.
+	 * 
+	 * You can save the result byte to audio file using FileOutputStream("path/audio.mp3"). 
+	 * 
+	 * @param input SpeechInput object containing the text and gender to use.
+	 * @return byte array of the decoded audio content.
+	 * @throws IOException in case of communication error.
+	 */
+	public byte[] generateArabicText(Text2SpeechInput input) throws IOException {
+		
+		if (this.keyType == SpeechModels.google) {
+			return this.generateGoogleText(input.getText(), input.getGender(), "ar-XA");
+		} else {
+			throw new IllegalArgumentException("the keyType not supported");
+		}
+	}
+	
+	
+	/**
+	 * Generates speech using advanced audio models.
+	 * 
+	 * You can save the result byte to audio file using FileOutputStream("path/audio.mp3"). 
+	 * 
+	 * @param input SpeechInput object containing the text and gender to use.
+	 * @return byte array of the decoded audio content.
+	 * @throws IOException in case of communication error.
+	 */
+	public byte[] generateTurkishText(Text2SpeechInput input) throws IOException {
+		
+		if (this.keyType == SpeechModels.google) {
+			return this.generateGoogleText(input.getText(), input.getGender(), "tr-TR");
+		} else {
+			throw new IllegalArgumentException("the keyType not supported");
+		}
+	}
+	
+	/**
+	 * Generates speech using advanced audio models.
+	 * 
+	 * You can save the result byte to audio file using FileOutputStream("path/audio.mp3"). 
+	 * 
+	 * @param input SpeechInput object containing the text and gender to use.
+	 * @param langCode the language code, make sure to use the right code for the model engine. 
+	 * @return byte array of the decoded audio content.
+	 * @throws IOException in case of communication error.
+	 */
+	public byte[] generateText(Text2SpeechInput input, String langCode) throws IOException {
+		
+		if (this.keyType == SpeechModels.google) {
+			return this.generateGoogleText(input.getText(), input.getGender(), langCode);
+		} else {
+			throw new IllegalArgumentException("the keyType not supported");
+		}
+	}
+	
+	
+	/**
+	 * Generates speech using advanced audio models.
+	 * 
+	 * You can save the result byte to audio file using FileOutputStream("path/audio.mp3"). 
+	 * 
+	 * @param input SpeechInput object containing the text and gender to use.
+	 * @return byte array of the decoded audio content.
+	 * @throws IOException in case of communication error.
+	 */
+	public byte[] generateGermanText(Text2SpeechInput input) throws IOException {
+		
+		if (this.keyType == SpeechModels.google) {
+			return this.generateGoogleText(input.getText(), input.getGender(), "de-de");
 		} else {
 			throw new IllegalArgumentException("the keyType not supported");
 		}
@@ -143,13 +237,56 @@ public class RemoteSpeechModel {
 		params.put("text", text);
 		params.put("languageCode", language);
 		
-		if (gender == Gender.FEMALE) {
-			params.put("name", "en-GB-Standard-A");
-			params.put("ssmlGender", "FEMALE");
-		} else {
-			params.put("name", "en-GB-Standard-B");
-			params.put("ssmlGender", "MALE");
-		}
+		language = language.toLowerCase();
+		
+		if (language.equals("en-gb")) {
+			// English
+	        if (gender == Gender.FEMALE) {
+	            params.put("name", "en-GB-Standard-A");
+	            params.put("ssmlGender", "FEMALE");
+	        } else {
+	            params.put("name", "en-GB-Standard-B");
+	            params.put("ssmlGender", "MALE");
+	        }
+	    } else if (language.equals("tr-tr")) {
+	    	// Turkish
+	        if (gender == Gender.FEMALE) {
+	            params.put("name", "tr-TR-Standard-A");
+	            params.put("ssmlGender", "FEMALE");
+	        } else {
+	            params.put("name", "tr-TR-Standard-B");
+	            params.put("ssmlGender", "MALE");
+	        }
+	    } else if (language.equals("cmn-cn")) {
+	    	// Mandarin Chinese
+	        if (gender == Gender.FEMALE) {
+	            params.put("name", "cmn-CN-Standard-A");
+	            params.put("ssmlGender", "FEMALE");
+	        } else {
+	            params.put("name", "cmn-CN-Standard-B");
+	            params.put("ssmlGender", "MALE");
+	        }
+	    } else if (language.equals("de-de")) {
+	    	// German (Germany)	
+	        if (gender == Gender.FEMALE) {
+	            params.put("name", "de-DE-Standard-A");
+	            params.put("ssmlGender", "FEMALE");
+	        } else {
+	            params.put("name", "de-DE-Standard-B");
+	            params.put("ssmlGender", "MALE");
+	        }
+	    } else if (language.equals("ar-xa")) {
+	    	// Arabic
+	        if (gender == Gender.FEMALE) {
+	            params.put("name", "ar-XA-Wavenet-A");
+	            params.put("ssmlGender", "FEMALE");
+	        } else {
+	            params.put("name", "ar-XA-Standard-B");
+	            params.put("ssmlGender", "MALE");
+	        }
+	    } else {
+	        throw new IllegalArgumentException("Unsupported language code: " + language);
+	    }
 		
 		AudioResponse resModel = (AudioResponse) wrapper.generateSpeech(params);
 		decodedAudio = AudioHelper.decode(resModel.getAudioContent());
