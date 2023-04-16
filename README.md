@@ -1,6 +1,6 @@
 # Intelligent Java
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=for-the-badge)](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.8.0)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.barqawiz/intellijava.core?style=for-the-badge)](https://central.sonatype.com/artifact/io.github.barqawiz/intellijava.core/0.8.2)
 [![GitHub](https://img.shields.io/github/license/Barqawiz/IntelliJava?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
 
 Intelligent java (IntelliJava) is the ultimate tool to integrate with the latest language models and deep learning frameworks using java. The library provides an intuitive functions for sending input to models like ChatGPT and DALL·E, and receiving generated text, speech or images. With just a few lines of code, you can easily access the power of cutting-edge AI models to enhance your projects.
@@ -24,23 +24,23 @@ Maven:
 <dependency>
     <groupId>io.github.barqawiz</groupId>
     <artifactId>intellijava.core</artifactId>
-    <version>0.8.0</version>
+    <version>0.8.2</version>
 </dependency>
 ```
 
 Gradle:
 
 ```
-implementation 'io.github.barqawiz:intellijava.core:0.8.0'
+implementation 'io.github.barqawiz:intellijava.core:0.8.2'
 ```
 
 Gradle(Kotlin):
 ```
-implementation("io.github.barqawiz:intellijava.core:0.8.0")
+implementation("io.github.barqawiz:intellijava.core:0.8.2")
 ```
 
 Jar download:
-[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.8.0/intellijava.core-0.8.0.jar).
+[intellijava.jar](https://repo1.maven.org/maven2/io/github/barqawiz/intellijava.core/0.8.2/intellijava.core-0.8.2.jar).
 
 ## Code Example
 **Language model code** (2 steps):
