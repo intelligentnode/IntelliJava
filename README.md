@@ -16,6 +16,11 @@
     <img src="https://img.shields.io/github/license/Barqawiz/IntelliJava?style=flat-square" />
 </a>
 
+
+<img src="https://img.shields.io/badge/builder-intelliCode-green?style=flat-square" />
+
+
+
 </p>
 
 # Intelligent Java
