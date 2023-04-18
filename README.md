@@ -153,6 +153,7 @@ Call for contributors:
 - [ ] Add support to Azure nlp models.
 - [ ] Add support to Midjourney image generation.
 - [ ] Add support to WuDao 2.0 model.
+- [ ] Add support to Stable Diffusion.
 
 # License
 Apache License
