@@ -16,6 +16,10 @@
     <img src="https://img.shields.io/github/license/Barqawiz/IntelliJava?style=flat-square" />
 </a>
 
+<a href="https://github.com/akullpp/awesome-java">
+     <img src="https://awesome.re/mentioned-badge.svg" alt="Mentioned in Awesome Java">
+</a>
+
 
 <img src="https://img.shields.io/badge/builder-intelliCode-green?style=flat-square" />
 
