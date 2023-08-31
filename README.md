@@ -107,7 +107,7 @@ Output:
 For full example check the [sample_code project](https://github.com/Barqawiz/IntelliJava/tree/main/sample_code).
 
 ## Documentation
-- [Go to Java docs](https://barqawiz.github.io/IntelliJava/javadocs/)
+- [Go to Java docs](https://intelligentnode.github.io/IntelliJava/javadocs/)
 - [Tutorial article](https://albarqawi.medium.com/intelligent-java-a-gateway-to-the-latest-ai-models-c08c09513672)
 
 
