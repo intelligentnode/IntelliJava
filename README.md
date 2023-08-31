@@ -142,7 +142,7 @@ For jar download:
 [gson download repo](https://search.maven.org/artifact/com.google.code.gson/gson/2.10.1/jar)
 
 ## Documentation
-- [Go to Java docs](https://barqawiz.github.io/IntelliJava/javadocs/)
+- [Go to Java docs](https://intelligentnode.github.io/IntelliJava/javadocs/)
 - [Tutorial article](https://albarqawi.medium.com/intelligent-java-a-gateway-to-the-latest-ai-models-c08c09513672)
 
 # Roadmap
